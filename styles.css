@@ -11,6 +11,7 @@
   --accent: #2563eb;
   --accent-2: #0891b2;
   --accent-warm: #f59e0b;
+  --accent-edu: #4f46e5;
   --accent-soft: #dbeafe;
   --radius: 10px;
   --shadow: 0 16px 42px rgba(17, 24, 39, 0.08);
@@ -435,6 +436,23 @@ h4 {
   display: grid;
   grid-template-columns: 164px minmax(0, 1fr);
   gap: 58px;
+  --theme-color: var(--accent);
+}
+
+.timeline-item.theme-sap {
+  --theme-color: var(--accent);
+}
+
+.timeline-item.theme-project {
+  --theme-color: var(--accent-2);
+}
+
+.timeline-item.theme-award {
+  --theme-color: var(--accent-warm);
+}
+
+.timeline-item.theme-education {
+  --theme-color: var(--accent-edu);
 }
 
 .timeline-date {
@@ -446,15 +464,7 @@ h4 {
 .timeline-content {
   position: relative;
   padding: 26px;
-  border-left: 3px solid #bfdbfe;
-}
-
-.timeline-item:nth-child(3n + 2) .timeline-content {
-  border-left-color: #67e8f9;
-}
-
-.timeline-item:nth-child(3n + 3) .timeline-content {
-  border-left-color: #fbbf24;
+  border-left: 3px solid var(--theme-color);
 }
 
 .timeline-content::before {
@@ -466,8 +476,8 @@ h4 {
   height: 14px;
   border: 3px solid white;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent);
+  background: var(--theme-color);
+  box-shadow: 0 0 0 1px var(--theme-color);
 }
 
 .timeline-item.featured .timeline-content {
