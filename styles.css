@@ -308,6 +308,27 @@ h4 {
   font-size: 15px;
 }
 
+.mini-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.mini-stack li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 9px;
+  border: 1px solid #dbe3ef;
+  border-radius: 999px;
+  background: white;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
 .section-heading {
   max-width: 820px;
   margin-bottom: 46px;
