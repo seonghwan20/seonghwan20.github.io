@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SAP CODE ERP Implementation Project 상세 기록" />
+    <title>SAP CODE ERP Project | hwan.github.io</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="홈으로 이동">
+        <span class="brand-mark">H</span>
+        <span>hwan.github.io</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="../index.html#timeline">Timeline</a>
+        <a href="../index.html#focus">Focus</a>
+        <a href="../index.html#credentials">Credentials</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>SAP CODE ERP</span></div>
+          <p class="eyebrow">Featured Project · 2025.04 ~ 2025.10</p>
+          <h1>SAP CODE ERP Implementation Project</h1>
+          <p class="lead">
+            가구 제조·판매·렌탈 기업을 대상으로 ERP 시스템을 구축한 프로젝트입니다. PM과 CO 담당
+            역할을 맡아 전체 프로세스를 조율하고, CO 영역의 원가 관리 구조를 설계했습니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="container detail-grid">
+          <div class="detail-stack">
+            <article class="detail-card">
+              <h3>Overview</h3>
+              <p>
+                가상의 가구 제조·유통·렌탈 기업을 대상으로 ERP 시스템을 구축했습니다. 제조, 판매,
+                렌탈, 회수, 재고, 원가, 수익성 분석이 연결되는 복합 비즈니스 구조에서 PM과 CO 담당
+                역할을 맡아 전체 프로세스를 조율했습니다.
+              </p>
+              <div class="metric-grid">
+                <div class="metric"><strong>PM</strong><span>일정·산출물·프로세스 흐름 조율</span></div>
+                <div class="metric"><strong>CO</strong><span>원가 관리 구조 설계</span></div>
+                <div class="metric"><strong>ERP</strong><span>FI · MM · SD · PP 연계 흐름 이해</span></div>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <h3>Business Context</h3>
+              <ul>
+                <li>가구 제조 및 완제품 판매</li>
+                <li>주문형 맞춤 가구 제작</li>
+                <li>가구 렌탈 서비스</li>
+                <li>제조, 판매, 렌탈, 회수, 재고, 원가, 수익성 분석이 연결되는 복합 비즈니스 구조</li>
+              </ul>
+            </article>
+
+            <article class="detail-card">
+              <h3>Business Challenges</h3>
+              <ul>
+                <li>수요 예측 기반 생산 및 자재 운영 체계 미흡</li>
+                <li>MTS/MTO 병행 생산으로 인한 운영 복잡성</li>
+                <li>렌탈 자산 가치 및 재무 통제 체계 미흡</li>
+                <li>고객 및 제품 단위 수익성 분석 체계 부족</li>
+                <li>현장 업무와 시스템 정보 연계 부족</li>
+              </ul>
+            </article>
+
+            <article class="detail-card">
+              <h3>CO Process Design</h3>
+              <ol>
+                <li>조직 구조 및 CC/PC 계층 구조 구성</li>
+                <li>간접비 발생</li>
+                <li>1차·2차 배부</li>
+                <li>활동원가 분할</li>
+                <li>통합 단가구조와 기간별 활동단가 기반 제품 가공비 산출</li>
+                <li>가격차이 계정 기반 실제 원자재 단가 산출</li>
+                <li>자재원장 조정 및 재평가를 통한 실제 재료비 산출</li>
+                <li>실제 재료비 + 실제 가공비 기반 제품 실제원가 산출</li>
+                <li>표준원가와 실제원가 간 원가차이 분석</li>
+                <li>제품 및 기간 단위 수익성 분석</li>
+              </ol>
+              <p>
+                내부오더는 사용하지 않았으며, 오더 정산 없이 제품 원가 계산 구조를 설계했습니다.
+              </p>
+            </article>
+
+            <article class="detail-card">
+              <h3>What I Learned</h3>
+              <p>
+                CO는 단순히 원가를 계산하는 모듈이 아니라, 제조·물류·판매·회계 데이터를 경영
+                의사결정에 필요한 정보로 연결하는 구조라는 점을 이해했습니다. 원가 흐름을 설계하기
+                위해서는 회계 지식뿐 아니라 ERP 데이터 흐름과 모듈 간 연계 구조를 함께 이해해야
+                한다는 점을 경험했습니다.
+              </p>
+            </article>
+          </div>
+
+          <aside class="side-stack">
+            <div class="info-card">
+              <h3>My Role</h3>
+              <ul class="plain-list">
+                <li><strong>PM</strong><span>일정, 산출물, 프로세스 흐름 조율</span></li>
+                <li><strong>CO 담당</strong><span>CO 전체 프로세스 설계</span></li>
+                <li><strong>Integration</strong><span>FI, MM, SD, PP 연계 흐름 조율</span></li>
+              </ul>
+            </div>
+            <div class="info-card">
+              <h3>Key Outputs</h3>
+              <div class="chip-list">
+                <span>ABAP Program</span>
+                <span>Fiori App</span>
+                <span>CDS View</span>
+                <span>Custom Table</span>
+                <span>Screen Design</span>
+                <span>Process Design Document</span>
+                <span>CO Scenario Design</span>
+                <span>Cost Analysis Report Structure</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>© <span data-year></span> 정성환. Portfolio archive.</span>
+        <a href="../index.html">홈으로</a>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
