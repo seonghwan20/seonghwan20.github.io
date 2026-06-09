@@ -5,4 +5,3 @@ Personal portfolio site for SAP CO consulting, ERP process design, software proj
 This repository is intended to be deployed with GitHub Pages at:
 
 https://seonghwan20.github.io
-
