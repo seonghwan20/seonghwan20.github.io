@@ -1,8 +1,8 @@
 :root {
-  --bg: #ffffff;
+  --bg: #f6f8fb;
   --surface: #ffffff;
-  --soft: #f7f9fc;
-  --soft-2: #eef4ff;
+  --soft: #eef4ff;
+  --soft-2: #f8fafc;
   --ink: #111827;
   --text: #374151;
   --muted: #6b7280;
@@ -25,7 +25,9 @@ html {
 
 body {
   margin: 0;
-  background: var(--bg);
+  background:
+    linear-gradient(180deg, #ffffff 0, #ffffff 240px, var(--bg) 680px),
+    var(--bg);
   color: var(--ink);
   font-family: "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
   line-height: 1.7;
@@ -202,6 +204,26 @@ h4 {
   font-size: 18px;
 }
 
+.hero-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.hero-summary span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid #c7d2fe;
+  border-radius: 999px;
+  background: #eef4ff;
+  color: #1e3a8a;
+  font-size: 13px;
+  font-weight: 800;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -245,6 +267,7 @@ h4 {
 
 .snapshot-card {
   padding: 28px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   box-shadow: var(--shadow);
 }
 
@@ -307,21 +330,22 @@ h4 {
   position: absolute;
   top: 6px;
   bottom: 6px;
-  left: 154px;
+  left: 190px;
   width: 1px;
-  background: var(--line);
+  background: #d8e1ee;
 }
 
 .timeline-item {
   position: relative;
   display: grid;
-  grid-template-columns: 128px minmax(0, 1fr);
-  gap: 54px;
+  grid-template-columns: 164px minmax(0, 1fr);
+  gap: 58px;
 }
 
 .timeline-date {
   padding-top: 22px;
   text-align: right;
+  white-space: nowrap;
 }
 
 .timeline-content {
@@ -333,7 +357,7 @@ h4 {
   content: "";
   position: absolute;
   top: 30px;
-  left: -61px;
+  left: -37px;
   width: 14px;
   height: 14px;
   border: 3px solid white;
@@ -344,7 +368,8 @@ h4 {
 
 .timeline-item.featured .timeline-content {
   border-color: #bfdbfe;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+  box-shadow: 0 14px 32px rgba(37, 99, 235, 0.08);
 }
 
 .timeline-content h3 {
@@ -403,6 +428,7 @@ h4 {
 .project-card,
 .info-card {
   padding: 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
 }
 
 .focus-card p,
