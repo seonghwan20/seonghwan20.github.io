@@ -533,7 +533,7 @@ h4 {
   bottom: 8px;
   left: 4px;
   width: 1px;
-  background: color-mix(in srgb, var(--theme-color) 30%, #dbe3ef);
+  background: color-mix(in srgb, var(--theme-color) 48%, #dbe3ef);
 }
 
 .timeline-projects a {
@@ -541,16 +541,18 @@ h4 {
   display: grid;
   gap: 5px;
   padding: 14px 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid color-mix(in srgb, var(--theme-color) 34%, #dbe3ef);
+  border-left: 3px solid color-mix(in srgb, var(--theme-color) 76%, #dbe3ef);
   border-radius: 8px;
-  background: #f8fbff;
+  background: linear-gradient(180deg, #ffffff 0%, color-mix(in srgb, var(--theme-color) 5%, #f8fbff) 100%);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.035);
 }
 
 .timeline-projects a::before {
   content: "";
   position: absolute;
   top: 21px;
-  left: -18px;
+  left: -19px;
   width: 7px;
   height: 7px;
   border: 2px solid white;
