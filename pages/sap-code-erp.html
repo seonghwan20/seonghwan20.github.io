@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=20260610l" />
+    <link rel="stylesheet" href="../styles.css?v=20260610n" />
   </head>
   <body>
     <header class="site-header">
@@ -24,114 +24,344 @@
       </button>
       <nav class="nav-links" aria-label="주요 메뉴">
         <a href="../index.html#timeline">Timeline</a>
-        <a href="../index.html#focus">Focus</a>
         <a href="../index.html#credentials">Credentials</a>
         <a href="../index.html#contact">Contact</a>
       </nav>
     </header>
 
     <main>
-      <section class="page-hero">
+      <section class="page-hero sap-hero">
         <div class="container">
           <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>SAP CODE ERP</span></div>
           <p class="eyebrow">Featured Project · 2026.03 ~ 2026.07</p>
           <h1>SAP CODE ERP Implementation Project</h1>
           <p class="lead">
-            가구 제조·판매·렌탈 기업을 대상으로 ERP 시스템을 구축한 프로젝트입니다. PM과 CO 담당
-            역할을 맡아 전체 프로세스를 조율하고, CO 영역의 원가 관리 구조를 설계했습니다.
+            EverNiture라는 가상의 가구 제조·판매·렌탈 기업을 대상으로 SAP ERP 구축 시나리오를 설계하고,
+            PM과 CO 담당으로 원가 흐름, 배부, 활동단가, 표준원가 분석 화면까지 구현한 프로젝트입니다.
           </p>
+          <div class="sap-hero-strip" aria-label="project highlights">
+            <span>PM</span>
+            <span>CO Process</span>
+            <span>ABAP</span>
+            <span>CDS View</span>
+            <span>SAPUI5 / Fiori</span>
+          </div>
         </div>
       </section>
 
-      <section class="detail-section">
-        <div class="container detail-grid">
+      <section class="detail-section sap-detail">
+        <div class="container detail-grid sap-detail-grid">
           <div class="detail-stack">
-            <article class="detail-card">
-              <h3>Overview</h3>
+            <article class="detail-card sap-overview-card">
+              <div class="sap-card-kicker">Project Scope</div>
+              <h3>EverNiture ERP Scenario</h3>
               <p>
-                가상의 가구 제조·유통·렌탈 기업을 대상으로 ERP 시스템을 구축했습니다. 제조, 판매,
-                렌탈, 회수, 재고, 원가, 수익성 분석이 연결되는 복합 비즈니스 구조에서 PM과 CO 담당
-                역할을 맡아 전체 프로세스를 조율했습니다.
+                제조, 유통, 렌탈이 함께 움직이는 가구 기업을 전제로 ERP 프로세스를 구성했습니다.
+                CO 영역에서는 제품 원가를 기간 중심으로 계산하고, 제조부서 비용을 활동유형별로 분할한 뒤
+                실제 활동단가와 표준원가 분석 화면까지 이어지는 흐름을 설계했습니다.
               </p>
-              <div class="metric-grid">
-                <div class="metric"><strong>PM</strong><span>일정·산출물·프로세스 흐름 조율</span></div>
-                <div class="metric"><strong>CO</strong><span>원가 관리 구조 설계</span></div>
-                <div class="metric"><strong>ERP</strong><span>FI · MM · SD · PP 연계 흐름 이해</span></div>
+              <div class="sap-metric-row">
+                <div><strong>2026.03 ~ 2026.07</strong><span>Project Period</span></div>
+                <div><strong>PM / CO</strong><span>Role</span></div>
+                <div><strong>5</strong><span>CO Programs</span></div>
+                <div><strong>FI · MM · SD · PP</strong><span>Integration Scope</span></div>
+              </div>
+              <figure class="project-visual">
+                <img src="../assets/sap-erp/business-context.webp" alt="EverNiture business context and challenges" />
+                <figcaption>가구 제조·판매·렌탈 기업 컨셉과 ERP 도입 과제</figcaption>
+              </figure>
+            </article>
+
+            <article class="detail-card">
+              <div class="sap-card-kicker">Design Decision</div>
+              <h3>CO Process Design</h3>
+              <div class="sap-decision-grid">
+                <div>
+                  <strong>Product Costing</strong>
+                  <p>
+                    개별 제조오더 정산을 최소화하고, Product Cost by Period와 PCC 기반으로 자재·기간별 원가를 집계하는 구조를 선택했습니다.
+                  </p>
+                </div>
+                <div>
+                  <strong>Unified Rate</strong>
+                  <p>
+                    생산 버전과 플랜트 단가 체계를 단순화해 제품별 평균 원가와 월말 실제 단가 흐름을 일관되게 유지했습니다.
+                  </p>
+                </div>
+                <div>
+                  <strong>Cost Component Split</strong>
+                  <p>
+                    실제 원가를 재료비, 노무비, 제조간접비로 분리해 variance 추적과 손익 분석으로 이어지도록 설계했습니다.
+                  </p>
+                </div>
+                <div>
+                  <strong>PCA / G/L 중심 손익</strong>
+                  <p>
+                    대량의 수익성 세그먼트 생성을 피하고, Profit Center와 G/L 중심으로 제조·유통·렌탈 손익을 연결했습니다.
+                  </p>
+                </div>
               </div>
             </article>
 
             <article class="detail-card">
-              <h3>Business Context</h3>
-              <ul>
-                <li>가구 제조 및 완제품 판매</li>
-                <li>주문형 맞춤 가구 제작</li>
-                <li>가구 렌탈 서비스</li>
-                <li>제조, 판매, 렌탈, 회수, 재고, 원가, 수익성 분석이 연결되는 복합 비즈니스 구조</li>
-              </ul>
-            </article>
-
-            <article class="detail-card">
-              <h3>Business Challenges</h3>
-              <ul>
-                <li>수요 예측 기반 생산 및 자재 운영 체계 미흡</li>
-                <li>MTS/MTO 병행 생산으로 인한 운영 복잡성</li>
-                <li>렌탈 자산 가치 및 재무 통제 체계 미흡</li>
-                <li>고객 및 제품 단위 수익성 분석 체계 부족</li>
-                <li>현장 업무와 시스템 정보 연계 부족</li>
-              </ul>
-            </article>
-
-            <article class="detail-card">
-              <h3>CO Process Design</h3>
-              <ol>
-                <li>조직 구조 및 CC/PC 계층 구조 구성</li>
-                <li>간접비 발생</li>
-                <li>1차·2차 배부</li>
-                <li>활동원가 분할</li>
-                <li>통합 단가구조와 기간별 활동단가 기반 제품 가공비 산출</li>
-                <li>가격차이 계정 기반 실제 원자재 단가 산출</li>
-                <li>자재원장 조정 및 재평가를 통한 실제 재료비 산출</li>
-                <li>실제 재료비 + 실제 가공비 기반 제품 실제원가 산출</li>
-                <li>표준원가와 실제원가 간 원가차이 분석</li>
-                <li>제품 및 기간 단위 수익성 분석</li>
-              </ol>
+              <div class="sap-card-kicker">Artifacts</div>
+              <h3>System Design Assets</h3>
               <p>
-                내부오더는 사용하지 않았으며, 오더 정산 없이 제품 원가 계산 구조를 설계했습니다.
+                ERD, 조직도, 전체 프로세스 맵을 먼저 잡고 프로그램 구현으로 내려갔습니다.
+                화면 개발보다 앞단에서 데이터 구조와 업무 흐름을 정리한 뒤 CO 프로그램의 입출력 기준을 맞췄습니다.
               </p>
+              <div class="sap-artifact-grid">
+                <figure class="project-visual">
+                  <img src="../assets/sap-erp/erd.webp" alt="EverNiture ERD" />
+                  <figcaption>ERP 데이터 모델 ERD</figcaption>
+                </figure>
+                <figure class="project-visual">
+                  <img src="../assets/sap-erp/organization.webp" alt="EverNiture organization chart" />
+                  <figcaption>조직 구조 설계</figcaption>
+                </figure>
+                <figure class="project-visual sap-artifact-wide">
+                  <img src="../assets/sap-erp/process-map.webp" alt="ERP process map" />
+                  <figcaption>제조·판매·렌탈 프로세스 맵</figcaption>
+                </figure>
+              </div>
+            </article>
+
+            <article class="detail-card sap-flow-card">
+              <div class="sap-card-kicker">CO Data Flow</div>
+              <h3>Implemented Program Flow</h3>
+              <div class="sap-flow">
+                <div><span>01</span><strong>SKF 관리</strong><em>배부 기준 수량 입력</em></div>
+                <div><span>02</span><strong>1차 배부</strong><em>간접비 배부 실행</em></div>
+                <div><span>03</span><strong>비용 분할</strong><em>활동유형별 비용 분리</em></div>
+                <div><span>04</span><strong>활동단가</strong><em>실제 조업도 기반 단가 산출</em></div>
+                <div><span>05</span><strong>표준원가 분석</strong><em>Fiori 기반 조회·분석</em></div>
+              </div>
+            </article>
+
+            <article class="detail-card sap-program">
+              <div class="sap-program-head">
+                <div>
+                  <span>ABAP · ALV · Chart Engine</span>
+                  <h3>활동 유형별 월별 단가 조회 프로그램</h3>
+                </div>
+                <strong>Plan / Actual / Variance</strong>
+              </div>
+              <p>
+                노무시간, 기계시간, 제조간접비 등 활동유형별 계획 단가와 실제 단가를 월별로 비교하는 CO 대시보드입니다.
+                ALV 그리드와 SAP Chart Engine 라인 차트를 동기화해 연도별 단가 흐름과 variance를 한 화면에서 확인하도록 구성했습니다.
+              </p>
+              <div class="sap-program-grid">
+                <div class="sap-program-points">
+                  <ul>
+                    <li>LABOR, MACH, OVRH 탭 전환으로 활동유형별 데이터 조회</li>
+                    <li>실적 발생 월수 기준의 동적 연평균 단가 계산</li>
+                    <li>Field Symbol 기반 MON_01~MON_12 동적 컴포넌트 처리</li>
+                    <li>CDS View로 계획/실제 단가 조인 로직을 DB 레이어에 pushdown</li>
+                  </ul>
+                </div>
+                <figure class="project-visual">
+                  <img src="../assets/sap-erp/activity-rate-dashboard.webp" alt="Activity type monthly rate dashboard" />
+                  <figcaption>활동유형별 월별 단가 조회 및 차트</figcaption>
+                </figure>
+              </div>
+              <div class="sap-image-strip">
+                <img src="../assets/sap-erp/activity-rate-dropdown.webp" alt="Activity type selection" />
+                <img src="../assets/sap-erp/activity-rate-history.webp" alt="Activity rate history" />
+              </div>
+            </article>
+
+            <article class="detail-card sap-program">
+              <div class="sap-program-head">
+                <div>
+                  <span>ABAP Module Pool · ALV Tree</span>
+                  <h3>통계주요지표 관리 프로그램</h3>
+                </div>
+                <strong>SKF Master / Actual</strong>
+              </div>
+              <p>
+                코스트센터별 배부 기준이 되는 사원 수, 점유 면적, 총 노동시간 등의 SKF 실적을 월별로 입력·조회하는 프로그램입니다.
+                코스트센터 계층을 ALV Tree로 표현하고, 입력 검증과 저장 트랜잭션을 분리해 기준 데이터의 정합성을 유지했습니다.
+              </p>
+              <div class="sap-program-grid reverse">
+                <figure class="project-visual">
+                  <img src="../assets/sap-erp/skf-entry-main.webp" alt="SKF management main screen" />
+                  <figcaption>SKF 관리/입력 메인 화면</figcaption>
+                </figure>
+                <div class="sap-program-points">
+                  <ul>
+                    <li>코스트센터 그룹부터 하위 코스트센터까지 재귀 로직으로 Tree Node 구성</li>
+                    <li>MON_01~MON_12 월별 필드 동적 갱신</li>
+                    <li>고정값과 총합값 SKF를 구분해 입력 흐름 분리</li>
+                    <li>F4 Help, 필수값 검증, 중복 입력 검증, Commit/Rollback 처리</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="sap-image-strip four">
+                <img src="../assets/sap-erp/skf-tree-overview.webp" alt="SKF tree overview" />
+                <img src="../assets/sap-erp/skf-create-popup.webp" alt="SKF create popup" />
+                <img src="../assets/sap-erp/skf-save-confirm.webp" alt="SKF save confirmation" />
+                <img src="../assets/sap-erp/skf-entry-tree.webp" alt="SKF tree input" />
+              </div>
+            </article>
+
+            <article class="detail-card sap-program">
+              <div class="sap-program-head">
+                <div>
+                  <span>CO Allocation · Posting Control</span>
+                  <h3>1차 배부 실행 및 결과 조회 프로그램</h3>
+                </div>
+                <strong>Cycle / Segment</strong>
+              </div>
+              <p>
+                관리팀, 재무팀 등 송신 코스트센터에 쌓인 간접비를 배부 사이클과 세그먼트, SKF 비율에 따라 수신 코스트센터 또는
+                프로핏센터로 배부하는 프로그램입니다. 테스트 실행과 실제 전표 생성을 분리해 실행 전 결과를 검증할 수 있도록 구성했습니다.
+              </p>
+              <div class="sap-program-grid">
+                <div class="sap-program-points">
+                  <ul>
+                    <li>Cycle/Segment 기반 송신·수신·배부 원가요소 구조 반영</li>
+                    <li>FI 원천 비용과 CO 배부 세그먼트를 연결해 배부 대상 비용 산출</li>
+                    <li>SKF 비율 기반 배부금액 계산 및 기배부액 차감</li>
+                    <li>차이금액 보정 로직과 테스트/실행 모드 분리</li>
+                  </ul>
+                </div>
+                <figure class="project-visual">
+                  <img src="../assets/sap-erp/allocation-run-list.webp" alt="Primary allocation execution screen" />
+                  <figcaption>1차 배부 실행 조건 및 결과 리스트</figcaption>
+                </figure>
+              </div>
+              <div class="sap-image-strip compact">
+                <img src="../assets/sap-erp/allocation-result-log.webp" alt="Allocation result log" />
+              </div>
+            </article>
+
+            <article class="detail-card sap-program">
+              <div class="sap-program-head">
+                <div>
+                  <span>Cost Splitting · Actual Activity Rate</span>
+                  <h3>비용 분할 및 실제 활동단가 산출 프로그램</h3>
+                </div>
+                <strong>LABOR / MACH / OVRH</strong>
+              </div>
+              <p>
+                직접 제조부서 코스트센터에 집계된 제조 비용을 활동유형별로 분할하고, 실제 조업도 수량을 기준으로 실제 활동단가를 산출했습니다.
+                이 결과는 제품 가공비 계산과 실제 원가 분석의 기준 데이터로 이어집니다.
+              </p>
+              <div class="sap-program-grid reverse">
+                <figure class="project-visual">
+                  <img src="../assets/sap-erp/split-result-list.webp" alt="Cost splitting result list" />
+                  <figcaption>활동유형별 비용 분할 결과</figcaption>
+                </figure>
+                <div class="sap-program-points">
+                  <ul>
+                    <li>단일, 그룹, 전체 코스트센터 범위 실행 처리</li>
+                    <li>비용 데이터와 분할 규칙 마스터를 연결해 분할 기준 산출</li>
+                    <li>실제 조업도 수량 기반 분할 비율 및 활동단가 계산</li>
+                    <li>단수 차이 보정과 분할 전표 생성 흐름 구성</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="sap-image-strip four">
+                <img src="../assets/sap-erp/split-summary.webp" alt="Cost splitting summary" />
+                <img src="../assets/sap-erp/split-detail-list.webp" alt="Cost splitting detail" />
+                <img src="../assets/sap-erp/split-document-preview.webp" alt="Cost splitting document preview" />
+                <img src="../assets/sap-erp/split-actual-rate.webp" alt="Actual activity rate result" />
+              </div>
+            </article>
+
+            <article class="detail-card sap-program sap-program-featured">
+              <div class="sap-program-head">
+                <div>
+                  <span>SAPUI5 · Fiori Freestyle · OData V2</span>
+                  <h3>표준원가 분석 Fiori 대시보드</h3>
+                </div>
+                <strong>Standard Cost Analysis</strong>
+              </div>
+              <p>
+                자재별 월별 표준원가와 원가 구성요소를 조회하고, 재고·예약·BOM 구성·원가 변동 흐름을 함께 분석하는 Fiori Freestyle 화면입니다.
+                CO 원가 데이터와 MM 예약, SD 수주요건, PP BOM 데이터를 연결해 원가의 적정성을 판단할 수 있도록 구성했습니다.
+              </p>
+              <figure class="project-visual sap-feature-visual">
+                <img src="../assets/sap-erp/fiori-standard-cost-detail.webp" alt="Fiori standard cost detail dashboard" />
+                <figcaption>표준원가 상세 화면: 원가 구성, 재고, 예약, 히스토리 차트 통합 조회</figcaption>
+              </figure>
+              <div class="sap-decision-grid">
+                <div>
+                  <strong>CDS / OData Filter</strong>
+                  <p>연도, 월, 자재번호, 자재유형, 자재그룹 조건을 OData V2 read에 전달해 표준원가 데이터를 조회했습니다.</p>
+                </div>
+                <div>
+                  <strong>Master-Detail Routing</strong>
+                  <p>목록에서 자재를 선택하면 라우팅 파라미터로 회계연도, 월, 옵션 정보를 넘겨 상세 화면을 로드했습니다.</p>
+                </div>
+                <div>
+                  <strong>$expand Detail</strong>
+                  <p>원가 구성요소, 예약 정보, 수주요건 데이터를 Header 기준으로 함께 가져와 상세 화면을 구성했습니다.</p>
+                </div>
+                <div>
+                  <strong>VizFrame / Export</strong>
+                  <p>Donut, Line Chart와 Excel/PDF 출력까지 연결해 분석과 보고서 활용 흐름을 함께 구현했습니다.</p>
+                </div>
+              </div>
+              <div class="sap-image-strip four">
+                <img src="../assets/sap-erp/fiori-standard-cost-list.webp" alt="Fiori standard cost list" />
+                <img src="../assets/sap-erp/fiori-cost-component-chart.webp" alt="Fiori cost component chart" />
+                <img src="../assets/sap-erp/fiori-bom-cost.webp" alt="Fiori BOM cost table" />
+                <img src="../assets/sap-erp/fiori-export-dialog.webp" alt="Fiori export dialog" />
+              </div>
             </article>
 
             <article class="detail-card">
-              <h3>What I Learned</h3>
+              <div class="sap-card-kicker">What This Shows</div>
+              <h3>CO 설계와 개발을 같이 다룬 프로젝트</h3>
               <p>
-                CO는 단순히 원가를 계산하는 모듈이 아니라, 제조·물류·판매·회계 데이터를 경영
-                의사결정에 필요한 정보로 연결하는 구조라는 점을 이해했습니다. 원가 흐름을 설계하기
-                위해서는 회계 지식뿐 아니라 ERP 데이터 흐름과 모듈 간 연계 구조를 함께 이해해야
-                한다는 점을 경험했습니다.
+                이 프로젝트는 단순 화면 구현이 아니라 CO 기준 데이터, 배부 기준, 실제 활동단가, 제품 원가 분석 화면이 서로 맞물리도록 구성한 작업입니다.
+                업무 프로세스 설계와 ABAP/Fiori 구현을 함께 다루면서 ERP 데이터가 회계·물류·생산 흐름 안에서 어떻게 연결되는지 정리했습니다.
               </p>
             </article>
           </div>
 
-          <aside class="side-stack">
+          <aside class="side-stack sap-side">
             <div class="info-card">
               <h3>My Role</h3>
               <ul class="plain-list">
                 <li><strong>PM</strong><span>일정, 산출물, 프로세스 흐름 조율</span></li>
-                <li><strong>CO 담당</strong><span>CO 전체 프로세스 설계</span></li>
-                <li><strong>Integration</strong><span>FI, MM, SD, PP 연계 흐름 조율</span></li>
+                <li><strong>CO</strong><span>원가 계산, 배부, 활동단가, 표준원가 흐름 설계</span></li>
+                <li><strong>Implementation</strong><span>ABAP 프로그램과 Fiori 분석 화면 구현</span></li>
               </ul>
             </div>
             <div class="info-card">
-              <h3>Key Outputs</h3>
+              <h3>Business Scope</h3>
               <div class="chip-list">
-                <span>ABAP Program</span>
-                <span>Fiori App</span>
-                <span>CDS View</span>
-                <span>Custom Table</span>
-                <span>Screen Design</span>
-                <span>Process Design Document</span>
-                <span>CO Scenario Design</span>
-                <span>Cost Analysis Report Structure</span>
+                <span>Manufacturing</span>
+                <span>Sales</span>
+                <span>Rental</span>
+                <span>Inventory</span>
+                <span>Costing</span>
+                <span>Profit Center</span>
               </div>
+            </div>
+            <div class="info-card">
+              <h3>Technical Stack</h3>
+              <div class="chip-list">
+                <span>ABAP</span>
+                <span>Module Pool</span>
+                <span>ALV Tree</span>
+                <span>CDS View</span>
+                <span>OData V2</span>
+                <span>SAPUI5</span>
+                <span>Fiori</span>
+                <span>VizFrame</span>
+              </div>
+            </div>
+            <div class="info-card">
+              <h3>Outputs</h3>
+              <ul class="plain-list">
+                <li><strong>Design</strong><span>ERD, 조직도, 전체 프로세스 맵</span></li>
+                <li><strong>CO</strong><span>PCC, 배부, 비용 분할, 실제 활동단가</span></li>
+                <li><strong>Apps</strong><span>ABAP 4개, Fiori 1개</span></li>
+                <li><strong>Analysis</strong><span>표준원가, BOM 재료비, 재고·예약 추적</span></li>
+              </ul>
             </div>
           </aside>
         </div>
