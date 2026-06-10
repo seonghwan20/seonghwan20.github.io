@@ -824,7 +824,7 @@ main img {
   grid-template-rows: auto minmax(0, 1fr);
   gap: 14px;
   padding: 24px;
-  background: rgba(15, 23, 42, 0.82);
+  background: rgba(15, 23, 42, 0.88);
   backdrop-filter: blur(10px);
 }
 
@@ -842,18 +842,56 @@ main img {
   font-weight: 800;
 }
 
+.image-lightbox-meta {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.image-lightbox-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.image-lightbox-counter {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 12px;
+}
+
+.image-lightbox-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.image-lightbox-button,
 .image-lightbox-close {
   display: grid;
   place-items: center;
-  width: 40px;
+  min-width: 40px;
   height: 40px;
+  padding: 0 12px;
   border: 1px solid rgba(255, 255, 255, 0.34);
-  border-radius: 50%;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.12);
   color: white;
   cursor: pointer;
-  font-size: 22px;
+  font: inherit;
   line-height: 1;
+  text-decoration: none;
+}
+
+.image-lightbox-close {
+  width: 40px;
+  padding: 0;
+  font-size: 22px;
+}
+
+.image-lightbox-button:hover,
+.image-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .image-lightbox-figure {
@@ -870,8 +908,20 @@ main img {
   border-radius: 8px;
   background: white;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
-  cursor: zoom-out;
+  cursor: zoom-in;
   object-fit: contain;
+  transform-origin: center;
+  transition: transform 160ms ease;
+  user-select: none;
+  touch-action: none;
+}
+
+.image-lightbox-figure img.is-draggable {
+  cursor: grab;
+}
+
+.image-lightbox-figure img.is-draggable:active {
+  cursor: grabbing;
 }
 
 .summary-strip {
@@ -1250,8 +1300,43 @@ main img {
   font-weight: 800;
 }
 
-.sap-detail-grid {
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+.sap-detail-layout {
+  display: grid;
+  gap: 22px;
+}
+
+.sap-summary-panel {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.sap-summary-card {
+  min-height: 100%;
+  border-top: 3px solid rgba(37, 99, 235, 0.45);
+  background:
+    linear-gradient(180deg, rgba(239, 246, 255, 0.72), rgba(255, 255, 255, 0.96)),
+    white;
+}
+
+.sap-summary-card:nth-child(2) {
+  border-top-color: rgba(8, 145, 178, 0.5);
+}
+
+.sap-summary-card:nth-child(3) {
+  border-top-color: rgba(245, 158, 11, 0.58);
+}
+
+.sap-summary-card:nth-child(4) {
+  border-top-color: rgba(20, 184, 166, 0.5);
+}
+
+.sap-summary-card .plain-list li {
+  gap: 8px;
+}
+
+.sap-summary-card .plain-list span {
+  line-height: 1.45;
 }
 
 .sap-detail .detail-card {
@@ -1343,7 +1428,7 @@ main img {
 }
 
 .sap-artifact-wide img {
-  max-height: 520px;
+  max-height: none;
   object-fit: contain;
 }
 
@@ -1526,6 +1611,10 @@ main img {
     position: static;
   }
 
+  .sap-summary-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .sap-metric-row,
   .sap-flow,
   .sap-image-strip.four {
@@ -1625,6 +1714,33 @@ main img {
     border-left: 0;
   }
 
+  .image-lightbox {
+    padding: 14px;
+  }
+
+  .image-lightbox-bar {
+    align-items: flex-start;
+  }
+
+  .image-lightbox-actions {
+    gap: 6px;
+  }
+
+  .image-lightbox-button,
+  .image-lightbox-close {
+    min-width: 34px;
+    height: 34px;
+    padding: 0 9px;
+    font-size: 12px;
+  }
+
+  .image-lightbox-close {
+    width: 34px;
+    padding: 0;
+    font-size: 18px;
+  }
+
+  .sap-summary-panel,
   .sap-metric-row,
   .sap-flow,
   .sap-image-strip,
