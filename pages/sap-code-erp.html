@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=20260610n" />
+    <link rel="stylesheet" href="../styles.css?v=20260610o" />
   </head>
   <body>
     <header class="site-header">
@@ -111,11 +111,11 @@
                 화면 개발보다 앞단에서 데이터 구조와 업무 흐름을 정리한 뒤 CO 프로그램의 입출력 기준을 맞췄습니다.
               </p>
               <div class="sap-artifact-grid">
-                <figure class="project-visual">
+                <figure class="project-visual sap-artifact-main">
                   <img src="../assets/sap-erp/erd.webp" alt="EverNiture ERD" />
                   <figcaption>ERP 데이터 모델 ERD</figcaption>
                 </figure>
-                <figure class="project-visual">
+                <figure class="project-visual sap-artifact-wide">
                   <img src="../assets/sap-erp/organization.webp" alt="EverNiture organization chart" />
                   <figcaption>조직 구조 설계</figcaption>
                 </figure>
@@ -312,11 +312,12 @@
             </article>
 
             <article class="detail-card">
-              <div class="sap-card-kicker">What This Shows</div>
-              <h3>CO 설계와 개발을 같이 다룬 프로젝트</h3>
+              <div class="sap-card-kicker">Implementation Value</div>
+              <h3>CO 프로세스를 실행 가능한 시스템 흐름으로 구체화</h3>
               <p>
-                이 프로젝트는 단순 화면 구현이 아니라 CO 기준 데이터, 배부 기준, 실제 활동단가, 제품 원가 분석 화면이 서로 맞물리도록 구성한 작업입니다.
-                업무 프로세스 설계와 ABAP/Fiori 구현을 함께 다루면서 ERP 데이터가 회계·물류·생산 흐름 안에서 어떻게 연결되는지 정리했습니다.
+                CO 기준 데이터, 배부 기준, 실제 활동단가, 표준원가 분석 화면을 분리된 기능이 아니라 하나의 원가관리 흐름으로 연결했습니다.
+                SKF 입력에서 배부와 비용 분할, 실제 활동단가 산출, Fiori 기반 표준원가 분석까지 이어지도록 설계해
+                회계, 생산, 물류 데이터가 원가 의사결정에 사용되는 과정을 시스템 단위로 구현했습니다.
               </p>
             </article>
           </div>
@@ -374,6 +375,6 @@
         <a href="../index.html">Back to home</a>
       </div>
     </footer>
-    <script src="../script.js"></script>
+    <script src="../script.js?v=20260610a"></script>
   </body>
 </html>
