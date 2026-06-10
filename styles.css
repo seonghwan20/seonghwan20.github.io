@@ -871,6 +871,42 @@ h4 {
   overflow-wrap: anywhere;
 }
 
+.comparison-table {
+  display: grid;
+  gap: 0;
+  margin-top: 18px;
+  border: 1px solid #dbe3ef;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.comparison-table div {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  border-bottom: 1px solid #dbe3ef;
+}
+
+.comparison-table div:last-child {
+  border-bottom: 0;
+}
+
+.comparison-table strong,
+.comparison-table span {
+  padding: 13px 14px;
+  font-size: 14px;
+}
+
+.comparison-table strong {
+  background: #eff6ff;
+  color: #1e3a8a;
+}
+
+.comparison-table span {
+  color: var(--text);
+  border-left: 1px solid #dbe3ef;
+}
+
 .detail-card h3 + p,
 .detail-card h3 + ul,
 .detail-card h3 + ol {
@@ -1136,6 +1172,15 @@ h4 {
 
   .role-list {
     grid-template-columns: 1fr;
+  }
+
+  .comparison-table div {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-table span {
+    border-top: 1px solid #dbe3ef;
+    border-left: 0;
   }
 
   .footer {

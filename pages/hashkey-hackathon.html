@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="HASHKEY HACKATHON Award 활동 상세 기록" />
+    <meta name="description" content="BattleContract 1:1 Social Polymarket 해커톤 프로젝트 기록" />
     <title>HASHKEY HACKATHON Award | hwan.github.io</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=20260610f" />
+    <link rel="stylesheet" href="../styles.css?v=20260610g" />
   </head>
   <body>
     <header class="site-header">
@@ -32,10 +32,10 @@
         <div class="container">
           <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>HASHKEY HACKATHON</span></div>
           <p class="eyebrow">Hackathon · Award · 2025.03.30</p>
-          <h1>HASHKEY HACKATHON Award</h1>
+          <h1>BattleContract 1:1 Social Polymarket</h1>
           <p class="lead">
-            해커톤 환경에서 문제를 정의하고, 서비스 방향을 빠르게 구체화하며 프로토타입을 구현한
-            프로젝트 활동입니다.
+            일상 속 의견 충돌을 토큰 스테이킹, 위원회 투표, 스마트 컨트랙트 정산으로 연결한
+            1:1 의견 배틀 플랫폼입니다.
           </p>
         </div>
       </section>
@@ -44,18 +44,123 @@
         <div class="container detail-grid">
           <div class="detail-stack">
             <article class="detail-card">
-              <h3>Overview</h3>
+              <h3>Project Overview</h3>
               <p>
-                제한된 시간 안에서 문제 정의, 서비스 기획, 프로토타입 구현을 진행했습니다. 아이디어를
-                실행 가능한 서비스 구조로 정리하고, 구현 가능성과 사용자 흐름을 함께 검토했습니다.
+                BattleContract는 말로 끝나는 논쟁을 책임 있는 1:1 배틀로 바꾸는 Web3 서비스입니다.
+                사용자는 자신의 주장에 토큰을 걸고, 반대 의견을 가진 사용자가 같은 금액으로 참여하면
+                배틀이 성사됩니다. 이후 중립 위원회가 양쪽 의견을 판단하고, 결과에 따라 스마트 컨트랙트가
+                승자에게 보상을 자동 분배합니다.
               </p>
+              <div class="summary-strip">
+                <span>1:1 Opinion Battle</span>
+                <span>Token Staking</span>
+                <span>Committee Voting</span>
+                <span>Smart Contract Settlement</span>
+              </div>
             </article>
             <article class="detail-card">
-              <h3>Activity Focus</h3>
+              <h3>Problem Definition</h3>
               <ul>
-                <li>해결할 문제와 사용자 흐름 정의</li>
-                <li>핵심 기능 중심의 서비스 구조 정리</li>
-                <li>프로토타입 구현과 발표 흐름 구성</li>
+                <li>일상 속 논쟁은 많지만 대부분 명확한 결론 없이 의견으로만 끝남</li>
+                <li>주장에 책임이 없기 때문에 참여자의 태도와 몰입도가 쉽게 낮아짐</li>
+                <li>기존 예측 시장은 외부 사실 기반 결과에 강하지만 주관적 의견 대결에는 적합하지 않음</li>
+                <li>논쟁을 콘텐츠로 만들면서도 공정한 판단과 보상 정산을 함께 처리하는 구조가 부족함</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>Service Flow</h3>
+              <div class="process-columns">
+                <div class="process-block">
+                  <h4>User A</h4>
+                  <ol>
+                    <li>논쟁 주제 생성</li>
+                    <li>자신의 의견과 배팅 금액 설정</li>
+                    <li>위원 수를 설정하고 배틀을 공개</li>
+                  </ol>
+                </div>
+                <div class="process-block">
+                  <h4>User B</h4>
+                  <ol>
+                    <li>반대 의견으로 배틀 참여</li>
+                    <li>동일한 금액을 stake</li>
+                    <li>1:1 head-to-head 배틀 성사</li>
+                  </ol>
+                </div>
+                <div class="process-block">
+                  <h4>Committee</h4>
+                  <ol>
+                    <li>퀴즈 통과로 위원 자격 획득</li>
+                    <li>양측 의견을 검토하고 중립 투표</li>
+                    <li>투표 결과로 승자 결정</li>
+                  </ol>
+                </div>
+                <div class="process-block">
+                  <h4>Contract</h4>
+                  <ol>
+                    <li>배팅 금액 자동 예치</li>
+                    <li>투표 결과 확정</li>
+                    <li>승자에게 보상 자동 전송</li>
+                  </ol>
+                </div>
+              </div>
+            </article>
+            <article class="detail-card">
+              <h3>Core Mechanics</h3>
+              <ul>
+                <li>주제는 플랫폼이 아니라 사용자가 직접 생성해 밈, 스포츠, 제품 선호, 사회적 논쟁까지 확장 가능</li>
+                <li>배팅 금액을 걸어 의견에 책임을 부여하고, 관객은 단순 투표자가 아닌 판단 주체로 참여</li>
+                <li>위원회는 퀴즈를 통과한 사용자로 구성해 무작위 투표보다 높은 신뢰도를 확보</li>
+                <li>결과는 말싸움이 아니라 기록 가능한 Web3 프로세스로 정리되어 공유 가능한 콘텐츠가 됨</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>Web3 Trust System</h3>
+              <p>
+                지갑 기반 로그인, 스마트 컨트랙트 예치, 위원회 투표, 자동 정산을 결합해 중앙화된 심판 없이도
+                배틀 결과를 처리하는 구조를 제안했습니다. 플랫폼이 임의로 승자를 정하지 않고,
+                투표 결과와 보상 분배 흐름을 블록체인에 남기는 것이 핵심입니다.
+              </p>
+              <div class="contract-list">
+                <div>
+                  <strong>Wallet Login</strong>
+                  <span>사용자는 지갑으로 입장하고 배틀 참여 권한을 연결합니다.</span>
+                </div>
+                <div>
+                  <strong>Escrow</strong>
+                  <span>양측 stake는 스마트 컨트랙트에 예치되어 결과 확정 전까지 보관됩니다.</span>
+                </div>
+                <div>
+                  <strong>Settlement</strong>
+                  <span>위원회 투표 결과에 따라 승자에게 토큰이 자동 전송됩니다.</span>
+                </div>
+              </div>
+            </article>
+            <article class="detail-card">
+              <h3>Differentiation</h3>
+              <div class="comparison-table">
+                <div><strong>구조</strong><span>기존 예측 시장: 다수 참여</span><span>BattleContract: 1:1 개인 간 대결</span></div>
+                <div><strong>결과 판별</strong><span>기존 예측 시장: 외부 사실, oracle</span><span>BattleContract: 위원회 투표</span></div>
+                <div><strong>주제 생성</strong><span>기존 예측 시장: 플랫폼 중심</span><span>BattleContract: 유저 중심</span></div>
+                <div><strong>성격</strong><span>기존 예측 시장: 정보 예측</span><span>BattleContract: 의견 배틀과 게임화</span></div>
+                <div><strong>몰입 요소</strong><span>기존 예측 시장: 낮은 개인성</span><span>BattleContract: 경쟁, 책임, 밈화 가능성</span></div>
+              </div>
+            </article>
+            <article class="detail-card">
+              <h3>Expansion Direction</h3>
+              <ul>
+                <li>위원회를 DAO 형태로 확장해 커뮤니티가 판단 시스템을 운영하는 구조로 발전 가능</li>
+                <li>NFT 멤버십으로 private battle, community-only battle, premium judging을 구성 가능</li>
+                <li>배틀 결과를 밈이나 소셜 콘텐츠로 전환해 확산 가능한 debate network로 확장 가능</li>
+                <li>단발성 배틀을 넘어 연속 배틀, 랭킹, reputation, 시즌제 보상 구조로 게임화 가능</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>My Work</h3>
+              <ul>
+                <li>문제 정의와 서비스 내러티브를 정리하고 발표 흐름 구성</li>
+                <li>1:1 배틀 생성, 반대 의견 참여, 위원회 투표, 보상 정산 흐름을 서비스 구조로 구체화</li>
+                <li>기존 Polymarket과의 차별점을 1:1 구조, 주관적 주제, 커뮤니티 판단 중심으로 정리</li>
+                <li>해커톤 환경에서 프로토타입 구현과 발표 자료 구성을 병행</li>
               </ul>
             </article>
           </div>
@@ -65,13 +170,34 @@
               <h3>Tags</h3>
               <div class="chip-list">
                 <span>Hackathon</span>
-                <span>Service Design</span>
+                <span>Web3</span>
+                <span>Polymarket</span>
+                <span>Smart Contract</span>
+                <span>Committee Voting</span>
                 <span>Prototype</span>
               </div>
             </div>
             <div class="info-card">
               <h3>Result</h3>
               <p>HASHKEY HACKATHON Award</p>
+            </div>
+            <div class="info-card">
+              <h3>Repository</h3>
+              <div class="repo-list">
+                <a href="https://github.com/betgws/battle3" target="_blank" rel="noreferrer">
+                  <span>GitHub</span>
+                  <strong>betgws/battle3</strong>
+                </a>
+              </div>
+            </div>
+            <div class="info-card">
+              <h3>Service Scope</h3>
+              <ul class="plain-list">
+                <li><strong>Topic</strong><span>User-generated opinion battle</span></li>
+                <li><strong>Stake</strong><span>Token-based accountability</span></li>
+                <li><strong>Judgment</strong><span>Quiz-qualified committee voting</span></li>
+                <li><strong>Settlement</strong><span>Smart contract reward distribution</span></li>
+              </ul>
             </div>
           </aside>
         </div>
