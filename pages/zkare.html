@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles.css?v=20260610b" />
+    <link rel="stylesheet" href="../styles.css?v=20260610c" />
   </head>
   <body>
     <header class="site-header">
@@ -42,10 +42,25 @@
                 블록체인에는 CID, SHA-256 해시, 암호화된 키, 타임스탬프 등 검증에 필요한 메타데이터만
                 남기는 구조로 설계했습니다.
               </p>
+              <div class="summary-strip">
+                <span>환자 직접 관리</span>
+                <span>선택적 접근 제어</span>
+                <span>무결성 검증</span>
+                <span>키 복구</span>
+              </div>
               <figure class="project-visual">
                 <img src="../assets/zkare/zkare-dashboard.png" alt="Zkare 의료기록 관리 시스템 화면" />
                 <figcaption>React 기반 Zkare 대시보드와 핵심 기능 화면</figcaption>
               </figure>
+            </article>
+            <article class="detail-card">
+              <h3>Problem Definition</h3>
+              <ul>
+                <li>의료 데이터가 병원별로 분산되어 환자가 자신의 기록을 통합적으로 관리하기 어려움</li>
+                <li>보험사, 연구기관 등 제3자 공유 시 필요한 항목보다 더 많은 민감 정보가 노출될 수 있음</li>
+                <li>중앙 저장소 기반 시스템은 해킹, 랜섬웨어, 내부 권한 오남용에 취약함</li>
+                <li>개인키를 잃어버리면 암호화된 의료기록 접근권 자체가 사라지는 문제가 있음</li>
+              </ul>
             </article>
             <article class="detail-card">
               <h3>Core Design</h3>
@@ -55,6 +70,31 @@
                 <li>IPFS 변조 여부를 SHA-256 해시로 검증하고, 블록체인에 접근 로그와 메타데이터를 기록</li>
                 <li>개인키 분실 상황에 대비해 Shamir's Secret Sharing 기반 2-of-3 보호자 키 복구 흐름 설계</li>
               </ul>
+            </article>
+            <article class="detail-card">
+              <h3>Requirements</h3>
+              <div class="process-columns">
+                <div class="process-block">
+                  <h4>Functional</h4>
+                  <ul>
+                    <li>사용자 키 생성과 공개키 등록</li>
+                    <li>환자 기본 정보 등록과 의료기록 생성</li>
+                    <li>역할 기반 접근 제어와 기록 조회</li>
+                    <li>보호자 승인 기반 키 복구 요청</li>
+                    <li>응급 상황을 위한 Master Account 접근</li>
+                  </ul>
+                </div>
+                <div class="process-block">
+                  <h4>Non-functional</h4>
+                  <ul>
+                    <li>AES-256-GCM + RSA-OAEP 2048-bit 하이브리드 암호화</li>
+                    <li>IPFS 저장으로 온체인 비용 절감</li>
+                    <li>블록체인 기반 접근 이력 투명성</li>
+                    <li>React 기반 직관적인 사용자 흐름</li>
+                    <li>해시 검증을 통한 데이터 변조 탐지</li>
+                  </ul>
+                </div>
+              </div>
             </article>
             <article class="detail-card">
               <h3>System Architecture</h3>
@@ -111,6 +151,24 @@
               </div>
             </article>
             <article class="detail-card">
+              <h3>Roles & Access</h3>
+              <div class="role-list">
+                <div><strong>Patient</strong><span>본인 의료기록 조회, 복호화, 키 복구 요청</span></div>
+                <div><strong>Doctor</strong><span>환자 등록, 의료기록 생성, 진료 데이터 업로드</span></div>
+                <div><strong>Guardian</strong><span>키 복구 요청 승인 또는 거절</span></div>
+                <div><strong>Master Account</strong><span>응급 상황에서 제한적 접근, 접근 로그 기록</span></div>
+              </div>
+            </article>
+            <article class="detail-card">
+              <h3>Key Recovery & Emergency Access</h3>
+              <p>
+                초기 설계에서는 개인키 분실 시 의료기록 접근이 영구적으로 불가능해지는 문제가 있었습니다.
+                이를 해결하기 위해 보호자 3명 중 2명 이상이 승인하면 복구가 가능한 구조를 설계했고,
+                복구 요청에는 24시간 유효기간을 두었습니다. 응급 접근은 Master 전용 암호화 키와
+                온체인 접근 로그를 함께 사용해 남용 가능성을 줄이는 방향으로 구성했습니다.
+              </p>
+            </article>
+            <article class="detail-card">
               <h3>Testing & Results</h3>
               <ul>
                 <li>KeyRegistry, EncryptedMedicalRecord, KeyRecovery 스마트컨트랙트 단위 테스트 통과</li>
@@ -120,12 +178,35 @@
               </ul>
             </article>
             <article class="detail-card">
+              <h3>Development Environment</h3>
+              <div class="contract-list">
+                <div>
+                  <strong>Blockchain</strong>
+                  <span>Solidity 0.8.28, Hardhat 2.24.3, Ethers.js 5.7.2, OpenZeppelin Contracts 5.3.0</span>
+                </div>
+                <div>
+                  <strong>Frontend</strong>
+                  <span>React 18.2.0, Material UI 5.13.0, React Router 6.11.1, Emotion</span>
+                </div>
+                <div>
+                  <strong>Security & Storage</strong>
+                  <span>Web Crypto API, CryptoJS 4.2.0, IPFS, Pinata, MetaMask, Hardhat Local Network</span>
+                </div>
+              </div>
+            </article>
+            <article class="detail-card">
               <h3>My Role</h3>
               <p>
                 팀 리더로 참여하며 Key Recovery System 설계와 구현을 맡았습니다.
                 복구 요청 생성, 보호자 다중 승인, 키 재래핑 흐름, 복구 서비스 프로토타입을 설계했고
                 스마트컨트랙트와 프론트엔드 연동 테스트까지 진행했습니다.
               </p>
+              <ul>
+                <li>KeyRecovery 스마트컨트랙트의 복구 요청, 승인, 유효기간 흐름 설계</li>
+                <li>환자 키와 복구 키를 함께 고려한 AES/RSA dual wrapping 구조 정리</li>
+                <li>복구 워크플로 단위 테스트와 통합 테스트 시나리오 작성</li>
+                <li>무단 복구 방지, 다중 승인 강제, 키 버전 관리 흐름 검토</li>
+              </ul>
             </article>
           </div>
           <aside class="side-stack">
@@ -147,12 +228,21 @@
             </div>
             <div class="info-card">
               <h3>Metrics</h3>
-              <div class="metric-grid">
+              <div class="metric-list">
                 <div class="metric"><strong>~320K</strong><span>Patient Registration Gas</span></div>
                 <div class="metric"><strong>~280K</strong><span>Record Addition Gas</span></div>
                 <div class="metric"><strong>99%</strong><span>On-chain storage cost reduction</span></div>
                 <div class="metric"><strong>0.3s</strong><span>AES-256-GCM encryption</span></div>
               </div>
+            </div>
+            <div class="info-card">
+              <h3>Demo Scenarios</h3>
+              <ul class="plain-list">
+                <li><strong>Doctor</strong><span>환자 등록과 의료기록 생성</span></li>
+                <li><strong>Patient</strong><span>본인 기록 조회와 복호화</span></li>
+                <li><strong>Recovery</strong><span>보호자 2명 승인 후 키 복구</span></li>
+                <li><strong>Emergency</strong><span>Master 접근과 온체인 로그 확인</span></li>
+              </ul>
             </div>
           </aside>
         </div>

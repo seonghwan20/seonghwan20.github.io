@@ -738,6 +738,26 @@ h4 {
   background: #fbfdff;
 }
 
+.summary-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.summary-strip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-size: 12px;
+  font-weight: 800;
+}
+
 .process-columns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -791,6 +811,42 @@ h4 {
 }
 
 .contract-list span {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.role-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 22px;
+  margin-top: 18px;
+}
+
+.role-list div {
+  display: grid;
+  gap: 5px;
+  padding-left: 14px;
+  border-left: 3px solid var(--accent);
+}
+
+.role-list div:nth-child(2) {
+  border-left-color: var(--accent-2);
+}
+
+.role-list div:nth-child(3) {
+  border-left-color: var(--accent-warm);
+}
+
+.role-list div:nth-child(4) {
+  border-left-color: var(--accent-edu);
+}
+
+.role-list strong {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.role-list span {
   color: var(--text);
   font-size: 14px;
 }
@@ -941,11 +997,26 @@ h4 {
   margin-top: 22px;
 }
 
+.metric-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
 .metric {
   padding: 20px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--soft);
+}
+
+.metric-list .metric {
+  display: grid;
+  grid-template-columns: 86px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  min-height: 78px;
+  padding: 16px;
 }
 
 .metric strong {
@@ -1040,6 +1111,10 @@ h4 {
   }
 
   .process-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .role-list {
     grid-template-columns: 1fr;
   }
 
