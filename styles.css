@@ -897,6 +897,13 @@ h4 {
   font-size: 14px;
 }
 
+.comparison-head strong,
+.comparison-head span {
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-weight: 800;
+}
+
 .comparison-table strong {
   background: #eff6ff;
   color: #1e3a8a;
