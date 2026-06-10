@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Telegram IdeaTON 최우수상 활동 상세 기록" />
+    <meta name="description" content="TON DEX Aggregator와 Arbitrage Bot 아이디어톤 수상 기록" />
     <title>Telegram IdeaTON | hwan.github.io</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=20260610d" />
+    <link rel="stylesheet" href="../styles.css?v=20260610e" />
   </head>
   <body>
     <header class="site-header">
@@ -32,10 +32,10 @@
         <div class="container">
           <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>Telegram IdeaTON</span></div>
           <p class="eyebrow">Ideathon · Award · 2025.02.01</p>
-          <h1>Telegram IdeaTON 최우수상</h1>
+          <h1>TON Aggregator & Arbitrage Bot</h1>
           <p class="lead">
-            Telegram 기반 서비스 아이디어를 기획하고, 문제 해결 방향과 사용자 흐름을 발표한
-            아이디어톤 활동입니다.
+            TON 생태계의 DEX 가격 비교, Telegram Mini App 접근성, 차익거래 실행 흐름을
+            하나의 서비스로 연결하는 아이디어를 기획했습니다.
           </p>
         </div>
       </section>
@@ -44,18 +44,142 @@
         <div class="container detail-grid">
           <div class="detail-stack">
             <article class="detail-card">
-              <h3>Overview</h3>
+              <h3>Project Overview</h3>
               <p>
-                서비스 아이디어를 빠르게 정리하고, 사용자가 어떤 문제를 겪는지와 어떤 흐름으로 해결할
-                수 있는지를 중심으로 기획했습니다. 아이디어톤 결과 최우수상을 수상했습니다.
+                STON.fi, DeDust 등 TON DEX 간 가격과 유동성 정보를 비교하고, 유리한 swap 경로와
+                arbitrage 기회를 Telegram 안에서 확인할 수 있는 봇/미니앱을 제안했습니다.
+                단순한 가격표가 아니라 수수료, 슬리피지, 유동성, 실행 가능성을 함께 계산하는 구조로
+                기획했습니다.
               </p>
+              <div class="summary-strip">
+                <span>TON DeFi</span>
+                <span>DEX Aggregator</span>
+                <span>Arbitrage Bot</span>
+                <span>Telegram Mini App</span>
+              </div>
+              <figure class="project-visual">
+                <img src="../assets/ideaton/ton-ecosystem-summary.png" alt="TON ecosystem summary" />
+                <figcaption>TON 생태계의 DEX, Wallet, DeFi 서비스 구성을 조사한 발표 자료</figcaption>
+              </figure>
             </article>
             <article class="detail-card">
-              <h3>Activity Focus</h3>
+              <h3>Problem Definition</h3>
               <ul>
-                <li>서비스 문제 정의와 사용자 시나리오 구성</li>
-                <li>Telegram 환경에 맞춘 서비스 흐름 기획</li>
-                <li>아이디어 발표 자료 구성과 핵심 가치 전달</li>
+                <li>TON DEX별 wallet interface, contract 호출 방식, 데이터 제공 방식이 서로 달라 가격 비교가 불편함</li>
+                <li>Telegram Mini App 안에서 즉시 사용할 수 있는 DeFi 서비스와 arbitrage 실행 봇이 부족함</li>
+                <li>어디서 swap하는 것이 유리한지 직관적으로 안내하는 도구가 부족함</li>
+                <li>DEX 간 가격 차이가 발생해도 자동화된 실행 주체가 부족해 시장 균형화가 늦어질 수 있음</li>
+                <li>LP APR, staking 수익률, liquidity provide 조건을 한 화면에서 비교하기 어려움</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>Research Scope</h3>
+              <p>
+                초기 리서치에서는 STON.fi, DeDust, Megaton, Tegro, Optus, Flex 등 TON 기반 DEX와
+                관련 서비스를 비교했습니다. AMM 방식, order book 방식, aggregator 가능성,
+                실제 운영 여부, 유동성 규모, swap fee, oracle 연동 가능성을 검토했습니다.
+              </p>
+              <div class="contract-list">
+                <div>
+                  <strong>DEX Liquidity</strong>
+                  <span>실질적으로 활용 가능한 DEX와 풀 유동성, 거래량, TVL을 우선 확인</span>
+                </div>
+                <div>
+                  <strong>Oracle</strong>
+                  <span>Pyth, Redstone 등 TON 연동 가능 oracle을 후보로 검토</span>
+                </div>
+                <div>
+                  <strong>Interface</strong>
+                  <span>DEX별 contract 호출 방식과 account/transaction type 차이를 통합할 수 있는지 검토</span>
+                </div>
+              </div>
+            </article>
+            <article class="detail-card">
+              <h3>Core Idea</h3>
+              <div class="process-columns">
+                <div class="process-block">
+                  <h4>Aggregator</h4>
+                  <ul>
+                    <li>DEX별 swap 가격, pool 상태, fee, slippage 정보를 주기적으로 수집</li>
+                    <li>사용자가 입력한 pair와 수량 기준으로 최적 swap 경로 추천</li>
+                    <li>LP 제공, staking, DeFi APR 정보를 함께 비교</li>
+                  </ul>
+                </div>
+                <div class="process-block">
+                  <h4>Arbitrage Bot</h4>
+                  <ul>
+                    <li>DEX 간 가격 차이를 감지하고 순수익 기준으로 기회 필터링</li>
+                    <li>Telegram 알림으로 실행 가능성을 사용자에게 전달</li>
+                    <li>실행 직전 데이터가 달라지면 transaction을 취소하는 안전장치 고려</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="detail-card">
+              <h3>Profit Logic</h3>
+              <p>
+                arbitrage는 가격 차이만으로 판단하지 않고 gas fee, swap fee, slippage, 가격 변동 리스크를
+                함께 계산해야 한다고 보았습니다. 최소 거래 규모와 실행 조건은 순수익 기준으로 결정합니다.
+              </p>
+              <div class="formula-block">
+                Net Profit = [(Sell Price - Buy Price) x Volume] - (Gas Fees + Swap Fees + Slippage Cost)
+              </div>
+              <ul>
+                <li>TON gas fee는 평균적으로 낮지만, 거래 수익이 작으면 swap fee와 slippage가 수익을 잠식할 수 있음</li>
+                <li>STON.fi swap fee 0.3%, slippage 0.1% 가정으로 손익분기점을 검토</li>
+                <li>가격 차이가 threshold 이상일 때만 알림과 실행 후보를 생성하는 방식 제안</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>Architecture</h3>
+              <div class="process-columns">
+                <div class="process-block">
+                  <h4>Telegram Mini App</h4>
+                  <ul>
+                    <li>swap 비교, arbitrage 알림, educational guide를 제공하는 사용자 접점</li>
+                    <li>TonKeeper, Tonhub, MyTonWallet 등 지갑 연결 흐름 고려</li>
+                  </ul>
+                </div>
+                <div class="process-block">
+                  <h4>Off-chain Backend</h4>
+                  <ul>
+                    <li>DEX API와 oracle에서 가격, liquidity, pool 상태를 수집</li>
+                    <li>PostgreSQL과 Redis 기반 저장/캐시, arbitrage detection scheduler 구성</li>
+                  </ul>
+                </div>
+                <div class="process-block">
+                  <h4>TON Smart Contract</h4>
+                  <ul>
+                    <li>Arb Router Contract에서 multi-swap과 on-chain 실행 담당</li>
+                    <li>signed transaction을 통해 사용자 지갑과 연결하고 최종 수익을 사용자 wallet으로 반환</li>
+                  </ul>
+                </div>
+                <div class="process-block">
+                  <h4>Analytics</h4>
+                  <ul>
+                    <li>Tonapi, Ton Center, TonScan, TON Dune Analytics로 block/tx와 swap/liquidity 데이터 확인</li>
+                    <li>실행 전후 가격 차이와 pool 상태를 검증하는 데이터 파이프라인 구상</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="detail-card">
+              <h3>Implementation Challenges</h3>
+              <ul>
+                <li>TON 생태계의 낮은 TVL과 유동성은 arbitrage 수익성을 제한할 수 있음</li>
+                <li>DEX별 표준 인터페이스가 부족해 adapter layer가 필요함</li>
+                <li>가격 오라클과 DEX API 데이터의 지연, 불일치, 신뢰성을 검증해야 함</li>
+                <li>front-running, stale price execution, contract 취약점 등 보안 리스크 관리가 필요함</li>
+                <li>초보자가 Telegram 안에서 이해할 수 있는 UX/UI로 단순화해야 함</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>Expected Impact</h3>
+              <ul>
+                <li>DEX 간 가격 차이를 빠르게 해소해 TON 생태계의 가격 효율성을 높임</li>
+                <li>Telegram 안에서 DeFi 접근성을 높여 신규 사용자 진입 장벽을 낮춤</li>
+                <li>DEX 간 투명한 경쟁을 유도하고 liquidity provider의 선택 효율을 높임</li>
+                <li>향후 Pro Version에서는 지속적인 arbitrage opportunity 탐지와 자동화 기능 확장 가능</li>
               </ul>
             </article>
           </div>
@@ -66,12 +190,36 @@
               <div class="chip-list">
                 <span>Ideathon</span>
                 <span>Telegram</span>
-                <span>Service Planning</span>
+                <span>TON</span>
+                <span>DeFi</span>
+                <span>Aggregator</span>
+                <span>Arbitrage</span>
               </div>
             </div>
             <div class="info-card">
               <h3>Result</h3>
               <p>Telegram IdeaTON 최우수상</p>
+            </div>
+            <div class="info-card">
+              <h3>Scope</h3>
+              <ul class="plain-list">
+                <li><strong>Target</strong><span>TON DEX swap and DeFi yield comparison</span></li>
+                <li><strong>Interface</strong><span>Telegram Bot / Mini App</span></li>
+                <li><strong>Execution</strong><span>Off-chain engine + TON Smart Contract</span></li>
+              </ul>
+            </div>
+            <div class="info-card">
+              <h3>DEX / Infra</h3>
+              <div class="chip-list">
+                <span>STON.fi</span>
+                <span>DeDust</span>
+                <span>TonKeeper</span>
+                <span>Tonhub</span>
+                <span>Tonapi</span>
+                <span>Ton Center</span>
+                <span>Pyth</span>
+                <span>Redstone</span>
+              </div>
             </div>
           </aside>
         </div>
