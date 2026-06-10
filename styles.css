@@ -819,6 +819,44 @@ h4 {
   margin-top: 16px;
 }
 
+.repo-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.repo-list a {
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px;
+  border: 1px solid #dbe3ef;
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.repo-list a:nth-child(2) {
+  border-left-color: var(--accent-2);
+}
+
+.repo-list a:hover {
+  border-color: #bfdbfe;
+  transform: translateY(-1px);
+}
+
+.repo-list span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.repo-list strong {
+  color: var(--ink);
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
 .metric-grid {
   margin-top: 22px;
 }
