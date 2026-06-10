@@ -519,23 +519,49 @@ h4 {
 }
 
 .timeline-projects {
+  position: relative;
   display: grid;
   gap: 10px;
   margin-top: 18px;
+  padding-left: 18px;
+}
+
+.timeline-projects::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 4px;
+  width: 1px;
+  background: color-mix(in srgb, var(--theme-color) 30%, #dbe3ef);
 }
 
 .timeline-projects a {
+  position: relative;
   display: grid;
   gap: 5px;
-  padding: 15px 16px;
-  border: 1px solid #dbe3ef;
-  border-left: 3px solid var(--theme-color);
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  background: #f8fbff;
+}
+
+.timeline-projects a::before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: -18px;
+  width: 7px;
+  height: 7px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: var(--theme-color);
+  box-shadow: 0 0 0 1px var(--theme-color);
 }
 
 .timeline-projects a:hover {
-  border-color: #bfdbfe;
+  border-color: color-mix(in srgb, var(--theme-color) 42%, #dbe3ef);
+  background: #ffffff;
   transform: translateY(-1px);
 }
 
