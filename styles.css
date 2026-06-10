@@ -1465,8 +1465,8 @@ main img {
 }
 
 .sap-drawio-frame {
-  height: min(72vh, 760px);
-  min-height: 520px;
+  height: min(46vh, 420px);
+  min-height: 340px;
   margin-top: 24px;
   overflow: hidden;
   border: 1px solid #dbe3ef;
@@ -1706,6 +1706,14 @@ main img {
   gap: 12px;
 }
 
+.sap-image-strip.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sap-image-strip.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .sap-image-strip.four {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -1724,6 +1732,31 @@ main img {
   background: white;
   object-fit: contain;
   cursor: zoom-in;
+}
+
+.sap-image-strip figure {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+}
+
+.sap-image-strip figure img {
+  height: auto;
+  min-height: 0;
+}
+
+.sap-image-strip figcaption {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.sap-wide-visual img {
+  max-height: 560px;
+  object-fit: contain;
 }
 
 .sap-feature-visual img {
@@ -1760,6 +1793,7 @@ main img {
   .sap-metric-row,
   .sap-flow,
   .sap-org-notes,
+  .sap-image-strip.three,
   .sap-image-strip.four {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1894,7 +1928,8 @@ main img {
   }
 
   .sap-drawio-frame {
-    min-height: 420px;
+    height: 360px;
+    min-height: 300px;
   }
 
   .sap-flow {
