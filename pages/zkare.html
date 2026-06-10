@@ -3,11 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Zkare 블록체인 기반 암호화 의료기록 관리 시스템 졸업프로젝트 상세 기록"
+    />
     <title>Zkare Project | hwan.github.io</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles.css?v=20260610a" />
+    <link rel="stylesheet" href="../styles.css?v=20260610b" />
   </head>
   <body>
     <header class="site-header">
@@ -22,8 +26,8 @@
           <p class="eyebrow">Graduation Project · 2024.03 ~ 2024.12</p>
           <h1>Zkare Medical Record Management System</h1>
           <p class="lead">
-            블록체인 기반 의료 기록 관리 시스템입니다. 의료 기록의 접근 권한, 무결성 검증,
-            암호화, 분산 저장 흐름을 프로젝트 기반으로 설계하고 구현했습니다.
+            블록체인, IPFS, 하이브리드 암호화를 결합한 의료기록 관리 시스템입니다.
+            환자 중심 접근 권한, 기록 무결성 검증, 키 복구, 응급 접근 흐름을 1년간 설계하고 구현했습니다.
           </p>
         </div>
       </section>
@@ -31,29 +35,123 @@
         <div class="container detail-grid">
           <div class="detail-stack">
             <article class="detail-card">
-              <h3>Project Summary</h3>
+              <h3>Project Overview</h3>
               <p>
-                1년간 진행한 졸업 프로젝트로, Ethereum Smart Contract와 React 프론트엔드를
-                연동하고, 권한 기반 접근제어, ECDSA 무결성 검증, AES/RSA 이중 암호화, IPFS 연동,
-                환자 동의 시스템, 다중 병원 네트워크 구조를 설계했습니다.
+                병원, 보험사, 연구기관으로 흩어지는 의료 데이터에서 환자의 통제권과 기록 무결성을
+                확보하는 것을 목표로 했습니다. 실제 의료 데이터는 암호화해 IPFS에 저장하고,
+                블록체인에는 CID, SHA-256 해시, 암호화된 키, 타임스탬프 등 검증에 필요한 메타데이터만
+                남기는 구조로 설계했습니다.
               </p>
+              <figure class="project-visual">
+                <img src="../assets/zkare/zkare-dashboard.png" alt="Zkare 의료기록 관리 시스템 화면" />
+                <figcaption>React 기반 Zkare 대시보드와 핵심 기능 화면</figcaption>
+              </figure>
             </article>
             <article class="detail-card">
-              <h3>Key Work</h3>
+              <h3>Core Design</h3>
               <ul>
-                <li>환자 동의 기반 의료 기록 접근 흐름 설계</li>
-                <li>Smart Contract와 프론트엔드 연동</li>
-                <li>ECDSA 기반 무결성 검증 구조 구현</li>
-                <li>AES/RSA 이중 암호화와 IPFS 저장 흐름 설계</li>
+                <li>AES-256-GCM으로 의료기록 본문을 암호화하고, RSA-OAEP 2048-bit로 AES 키를 사용자별로 래핑</li>
+                <li>환자, 의사, Master Account 역할을 분리해 등록, 조회, 응급 접근 권한을 제어</li>
+                <li>IPFS 변조 여부를 SHA-256 해시로 검증하고, 블록체인에 접근 로그와 메타데이터를 기록</li>
+                <li>개인키 분실 상황에 대비해 Shamir's Secret Sharing 기반 2-of-3 보호자 키 복구 흐름 설계</li>
               </ul>
+            </article>
+            <article class="detail-card">
+              <h3>System Architecture</h3>
+              <p>
+                화면은 React로 구성하고, 브라우저의 Web Crypto API에서 암복호화를 수행했습니다.
+                Ethereum 스마트컨트랙트는 공개키, 역할, CID, 해시, 접근 권한을 관리하며,
+                IPFS와 Pinata는 암호화된 의료기록 본문을 보관합니다.
+              </p>
+              <figure class="project-visual compact">
+                <img src="../assets/zkare/zkare-architecture.png" alt="Zkare 시스템 아키텍처 구조도" />
+                <figcaption>환자, 의사, 보호자, Master Key Escrow를 포함한 암호화 의료기록 처리 구조</figcaption>
+              </figure>
+            </article>
+            <article class="detail-card">
+              <h3>Data Flow</h3>
+              <div class="process-columns">
+                <div class="process-block">
+                  <h4>Record Storage</h4>
+                  <ol>
+                    <li>의료기록 입력</li>
+                    <li>AES-256-GCM으로 기록 본문 암호화</li>
+                    <li>의사, 환자, Master 공개키로 AES 키 각각 암호화</li>
+                    <li>암호문을 IPFS에 업로드하고 CID 발급</li>
+                    <li>CID, 해시, 암호화 키, 타임스탬프를 블록체인에 저장</li>
+                  </ol>
+                </div>
+                <div class="process-block">
+                  <h4>Record Retrieval</h4>
+                  <ol>
+                    <li>블록체인에서 CID와 해시 조회</li>
+                    <li>IPFS에서 암호화된 의료기록 다운로드</li>
+                    <li>SHA-256 해시로 변조 여부 확인</li>
+                    <li>RSA 개인키로 AES 키 복호화</li>
+                    <li>AES 키로 의료기록 본문 복호화</li>
+                  </ol>
+                </div>
+              </div>
+            </article>
+            <article class="detail-card">
+              <h3>Smart Contracts</h3>
+              <div class="contract-list">
+                <div>
+                  <strong>KeyRegistry</strong>
+                  <span>사용자 공개키와 Doctor, Patient, Master 역할을 관리합니다.</span>
+                </div>
+                <div>
+                  <strong>EncryptedMedicalRecord</strong>
+                  <span>환자 기본 정보, 의료기록 CID, SHA-256 해시, 사용자별 암호화 AES 키를 저장합니다.</span>
+                </div>
+                <div>
+                  <strong>KeyRecovery</strong>
+                  <span>3명의 보호자 중 2명 이상 승인 시 복구가 가능한 2-of-3 키 복구 요청을 관리합니다.</span>
+                </div>
+              </div>
+            </article>
+            <article class="detail-card">
+              <h3>Testing & Results</h3>
+              <ul>
+                <li>KeyRegistry, EncryptedMedicalRecord, KeyRecovery 스마트컨트랙트 단위 테스트 통과</li>
+                <li>RSA 키 생성, 의료기록 암복호화, IPFS 업로드와 다운로드, 블록체인 트랜잭션 처리 검증</li>
+                <li>의사 환자 등록, 기록 생성, 환자 조회, 2-of-3 키 복구, Master 응급 접근 시나리오 통합 테스트</li>
+                <li>권한 없는 접근 차단, IPFS 데이터 변조 탐지, 잘못된 개인키 복호화 실패, Master 접근 로그 검증</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>My Role</h3>
+              <p>
+                팀 리더로 참여하며 Key Recovery System 설계와 구현을 맡았습니다.
+                복구 요청 생성, 보호자 다중 승인, 키 재래핑 흐름, 복구 서비스 프로토타입을 설계했고
+                스마트컨트랙트와 프론트엔드 연동 테스트까지 진행했습니다.
+              </p>
             </article>
           </div>
           <aside class="side-stack">
             <div class="info-card">
-              <h3>Tags</h3>
+              <h3>Project Scale</h3>
+              <ul class="plain-list">
+                <li><strong>Period</strong><span>2024.03 ~ 2024.12</span></li>
+                <li><strong>Type</strong><span>Graduation Project</span></li>
+                <li><strong>Role</strong><span>Team Leader · Key Recovery</span></li>
+              </ul>
+            </div>
+            <div class="info-card">
+              <h3>Stack</h3>
               <div class="chip-list">
-                <span>Ethereum</span><span>Solidity</span><span>React</span><span>MetaMask</span>
-                <span>RSA</span><span>AES</span><span>IPFS</span>
+                <span>Solidity</span><span>Hardhat</span><span>Ethers.js</span><span>React</span>
+                <span>Material UI</span><span>Web Crypto API</span><span>CryptoJS</span><span>IPFS</span>
+                <span>Pinata</span><span>MetaMask</span>
+              </div>
+            </div>
+            <div class="info-card">
+              <h3>Metrics</h3>
+              <div class="metric-grid">
+                <div class="metric"><strong>~320K</strong><span>Patient Registration Gas</span></div>
+                <div class="metric"><strong>~280K</strong><span>Record Addition Gas</span></div>
+                <div class="metric"><strong>99%</strong><span>On-chain storage cost reduction</span></div>
+                <div class="metric"><strong>0.3s</strong><span>AES-256-GCM encryption</span></div>
               </div>
             </div>
           </aside>
