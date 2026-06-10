@@ -766,6 +766,43 @@ h4 {
   font-weight: 800;
 }
 
+.course-list {
+  gap: 8px;
+}
+
+.course-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 46px;
+  gap: 14px;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.course-list li::before {
+  display: none;
+}
+
+.course-list strong {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.course-list span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  border-radius: 999px;
+  background: #eef4ff;
+  color: var(--accent-edu);
+  font-size: 12px;
+  font-weight: 800;
+}
+
 .side-stack {
   display: grid;
   gap: 18px;
