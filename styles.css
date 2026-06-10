@@ -693,8 +693,12 @@ h4 {
   color: var(--accent);
 }
 
+.page-hero h1 {
+  max-width: 1280px;
+}
+
 .page-hero .lead {
-  max-width: 880px;
+  max-width: 1280px;
 }
 
 .detail-section {
