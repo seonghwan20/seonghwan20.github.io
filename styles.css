@@ -15,7 +15,7 @@
   --accent-soft: #dbeafe;
   --radius: 10px;
   --shadow: 0 16px 42px rgba(17, 24, 39, 0.08);
-  --container: 1120px;
+  --container: 1360px;
 }
 
 * {
@@ -698,11 +698,12 @@ h4 {
 }
 
 .detail-section {
-  padding: 72px 40px;
+  padding: 72px 32px;
 }
 
 .detail-grid {
-  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 44px;
   align-items: start;
 }
 
