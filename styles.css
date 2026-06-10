@@ -775,8 +775,8 @@ h4 {
 }
 
 .detail-grid {
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
-  gap: 36px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
   align-items: start;
 }
 
@@ -1185,7 +1185,33 @@ main img {
 
 .side-stack {
   display: grid;
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  order: -1;
+  gap: 14px;
+}
+
+.side-stack .info-card {
+  min-height: 100%;
+  border-top: 3px solid rgba(37, 99, 235, 0.45);
+  background:
+    linear-gradient(180deg, rgba(239, 246, 255, 0.72), rgba(255, 255, 255, 0.96)),
+    white;
+}
+
+.side-stack .info-card:nth-child(2) {
+  border-top-color: rgba(8, 145, 178, 0.5);
+}
+
+.side-stack .info-card:nth-child(3) {
+  border-top-color: rgba(245, 158, 11, 0.58);
+}
+
+.side-stack .info-card:nth-child(4) {
+  border-top-color: rgba(20, 184, 166, 0.5);
+}
+
+.side-stack .info-card:nth-child(5) {
+  border-top-color: rgba(99, 102, 241, 0.5);
 }
 
 .info-card h3 {
@@ -1432,6 +1458,37 @@ main img {
   object-fit: contain;
 }
 
+.sap-organization-breakdown {
+  background:
+    linear-gradient(90deg, rgba(8, 145, 178, 0.06) 0 4px, transparent 4px 100%),
+    white;
+}
+
+.sap-org-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.sap-org-focus-grid .project-visual {
+  margin-top: 0;
+}
+
+.sap-org-focus-grid img {
+  min-height: 260px;
+  background: white;
+  object-fit: contain;
+}
+
+.sap-org-wide {
+  grid-column: 1 / -1;
+}
+
+.sap-org-wide img {
+  min-height: 360px;
+}
+
 .sap-flow-card {
   background:
     linear-gradient(90deg, rgba(8, 145, 178, 0.06) 0 4px, transparent 4px 100%),
@@ -1624,6 +1681,7 @@ main img {
   .sap-program-grid,
   .sap-program-grid.reverse,
   .sap-decision-grid,
+  .sap-org-focus-grid,
   .sap-artifact-grid {
     grid-template-columns: 1fr;
   }
