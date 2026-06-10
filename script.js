@@ -37,6 +37,10 @@ if (zoomableImages.length) {
         <button class="image-lightbox-button" type="button" data-action="zoom-out" aria-label="축소">−</button>
         <button class="image-lightbox-button" type="button" data-action="reset" aria-label="확대 초기화">Reset</button>
         <button class="image-lightbox-button" type="button" data-action="zoom-in" aria-label="확대">+</button>
+        <button class="image-lightbox-button" type="button" data-action="pan-left" aria-label="왼쪽으로 이동">←</button>
+        <button class="image-lightbox-button" type="button" data-action="pan-up" aria-label="위로 이동">↑</button>
+        <button class="image-lightbox-button" type="button" data-action="pan-down" aria-label="아래로 이동">↓</button>
+        <button class="image-lightbox-button" type="button" data-action="pan-right" aria-label="오른쪽으로 이동">→</button>
         <button class="image-lightbox-button" type="button" data-action="next" aria-label="다음 이미지">›</button>
         <a class="image-lightbox-button image-lightbox-original" href="#" target="_blank" rel="noreferrer">Original</a>
         <button class="image-lightbox-close" type="button" aria-label="이미지 닫기">×</button>
@@ -85,6 +89,15 @@ if (zoomableImages.length) {
       translateX = 0;
       translateY = 0;
     }
+    updateTransform();
+  };
+
+  const panImage = (deltaX, deltaY) => {
+    if (scale <= 1) {
+      setZoom(1.6);
+    }
+    translateX += deltaX;
+    translateY += deltaY;
     updateTransform();
   };
 
@@ -138,6 +151,10 @@ if (zoomableImages.length) {
       if (action === "zoom-in") setZoom(scale + 0.35);
       if (action === "zoom-out") setZoom(scale - 0.35);
       if (action === "reset") resetImagePosition();
+      if (action === "pan-left") panImage(-90, 0);
+      if (action === "pan-right") panImage(90, 0);
+      if (action === "pan-up") panImage(0, -90);
+      if (action === "pan-down") panImage(0, 90);
     });
   });
 
@@ -180,8 +197,24 @@ if (zoomableImages.length) {
     if (event.key === "Escape") {
       closeLightbox();
     }
-    if (event.key === "ArrowLeft") showImage(currentIndex - 1);
-    if (event.key === "ArrowRight") showImage(currentIndex + 1);
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      if (scale > 1) panImage(-90, 0);
+      else showImage(currentIndex - 1);
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      if (scale > 1) panImage(90, 0);
+      else showImage(currentIndex + 1);
+    }
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      panImage(0, -90);
+    }
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      panImage(0, 90);
+    }
     if (event.key === "+" || event.key === "=") setZoom(scale + 0.35);
     if (event.key === "-") setZoom(scale - 0.35);
     if (event.key === "0") resetImagePosition();

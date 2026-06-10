@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=20260610q" />
+    <link rel="stylesheet" href="../styles.css?v=20260610r" />
   </head>
   <body>
     <header class="site-header">
@@ -159,7 +159,7 @@
                   <figcaption>ERP 데이터 모델 ERD</figcaption>
                 </figure>
                 <figure class="project-visual sap-artifact-wide">
-                  <img src="../assets/sap-erp/organization-structure-full.svg" alt="EverNiture organization chart" />
+                  <img src="../assets/sap-erp/organization.webp" alt="EverNiture organization chart" />
                   <figcaption>조직 구조 설계</figcaption>
                 </figure>
                 <figure class="project-visual sap-artifact-wide">
@@ -171,28 +171,35 @@
 
             <article class="detail-card sap-organization-breakdown">
               <div class="sap-card-kicker">Organization Design</div>
-              <h3>조직 구조 상세 분해</h3>
+              <h3>상세 조직 구조</h3>
               <p>
-                관리영역, 법인, 본부, 팀, 플랜트, Profit Center, Cost Center가 한 조직도 안에서 연결되도록 설계했습니다.
-                전체 구조는 폭이 길기 때문에 영역별 확대본으로 다시 나누어 CO 오브젝트가 어느 조직 단위에 붙는지 확인할 수 있게 정리했습니다.
+                관리영역과 법인, 본부, 팀, 플랜트, Profit Center, Cost Center를 하나의 조직 체계로 연결했습니다.
+                제조, 판매, 렌탈, 물류 흐름에서 원가 오브젝트가 어느 조직 단위에 귀속되는지 확인할 수 있도록 구성했습니다.
               </p>
-              <div class="sap-org-focus-grid">
-                <figure class="project-visual">
-                  <img src="../assets/sap-erp/organization-structure-sales.svg" alt="Sales and rental organization detail" />
-                  <figcaption>영업·렌탈 조직</figcaption>
-                </figure>
-                <figure class="project-visual">
-                  <img src="../assets/sap-erp/organization-structure-logistics.svg" alt="Logistics organization detail" />
-                  <figcaption>물류 조직</figcaption>
-                </figure>
-                <figure class="project-visual sap-org-wide">
-                  <img src="../assets/sap-erp/organization-structure-production.svg" alt="Production organization detail" />
-                  <figcaption>생산 조직과 CO 오브젝트</figcaption>
-                </figure>
-                <figure class="project-visual">
-                  <img src="../assets/sap-erp/organization-structure-admin.svg" alt="Finance and HR organization detail" />
-                  <figcaption>회계·인사 조직</figcaption>
-                </figure>
+              <div class="sap-drawio-frame">
+                <iframe
+                  title="EverNiture organization structure"
+                  src="../assets/sap-erp/organization-drawio.html"
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <div class="sap-org-notes" aria-label="organization structure notes">
+                <div>
+                  <strong>영업·렌탈</strong>
+                  <span>판매 조직과 렌탈사업부를 분리해 매출, 반품, 렌탈 회수 흐름을 구분</span>
+                </div>
+                <div>
+                  <strong>물류</strong>
+                  <span>완제품 허브와 중고 허브를 나누어 재고 이동과 검수 기준을 분리</span>
+                </div>
+                <div>
+                  <strong>생산</strong>
+                  <span>플랜트와 생산팀 단위에 Profit Center와 Cost Center를 연결</span>
+                </div>
+                <div>
+                  <strong>관리</strong>
+                  <span>회계, 인사, 관리 조직을 별도 본부로 두어 공통 비용 흐름을 분리</span>
+                </div>
               </div>
             </article>
 
@@ -401,6 +408,6 @@
         <a href="../index.html">Back to home</a>
       </div>
     </footer>
-    <script src="../script.js?v=20260610c"></script>
+    <script src="../script.js?v=20260610d"></script>
   </body>
 </html>
