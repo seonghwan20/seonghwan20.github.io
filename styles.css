@@ -518,6 +518,47 @@ h4 {
   font-weight: 700;
 }
 
+.timeline-projects {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.timeline-projects a {
+  display: grid;
+  gap: 5px;
+  padding: 15px 16px;
+  border: 1px solid #dbe3ef;
+  border-left: 3px solid var(--theme-color);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.timeline-projects a:hover {
+  border-color: #bfdbfe;
+  transform: translateY(-1px);
+}
+
+.timeline-projects span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.timeline-projects strong {
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.timeline-projects em {
+  color: var(--text);
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.55;
+}
+
 .text-link {
   display: inline-flex;
   margin-top: 18px;
