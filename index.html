@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260611h" />
+    <link rel="stylesheet" href="./styles.css?v=20260611i" />
   </head>
   <body>
     <header class="site-header">
@@ -46,6 +46,10 @@
           <div class="hero-copy">
             <p class="eyebrow">Portfolio</p>
             <h1>정성환 Portfolio</h1>
+            <div class="direction-bar" aria-label="current direction">
+              <span>Current Direction</span>
+              <strong>SAP CO Consultant · ERP Process Designer</strong>
+            </div>
             <div class="hero-summary" aria-label="핵심 프로필">
               <span>SAP CO</span>
               <span>ERP Process</span>
@@ -245,21 +249,27 @@
           <div class="credential-block">
             <p class="eyebrow">Awards</p>
             <h2>수상</h2>
-            <ul class="plain-list">
+            <ul class="award-list">
               <li>
-                <strong>Telegram IdeaTON 최우수상</strong>
-                <span>2025.02.01</span>
-                <a class="credential-link" href="./pages/telegram-ideaton.html">상세 보기</a>
+                <a href="./pages/telegram-ideaton.html">
+                  <span>2025.02.01</span>
+                  <strong>Telegram IdeaTON 최우수상</strong>
+                  <em>TON DEX Aggregator & Arbitrage Bot 기획</em>
+                </a>
               </li>
               <li>
-                <strong>HASHKEY HACKATHON 특별상</strong>
-                <span>2025.03.30</span>
-                <a class="credential-link" href="./pages/hashkey-hackathon.html">상세 보기</a>
+                <a href="./pages/hashkey-hackathon.html">
+                  <span>2025.03.30</span>
+                  <strong>HASHKEY HACKATHON 특별상</strong>
+                  <em>1:1 Social Polymarket 서비스 기획 및 구현</em>
+                </a>
               </li>
               <li>
-                <strong>BUIDL Asia Story Track 최우수상</strong>
-                <span>2025.04.13</span>
-                <a class="credential-link" href="./pages/buidl-story-track.html">상세 보기</a>
+                <a href="./pages/buidl-story-track.html">
+                  <span>2025.04.13</span>
+                  <strong>BUIDL Asia Story Track 최우수상</strong>
+                  <em>AI 학습 데이터 IP 보상 플랫폼 StoryTuning</em>
+                </a>
               </li>
             </ul>
           </div>
@@ -292,10 +302,16 @@
     <footer class="footer">
       <div class="container footer-inner">
         <span>© 정성환. Portfolio archive.</span>
-        <a href="#home">Back to top</a>
+        <nav class="footer-links" aria-label="footer quick links">
+          <a href="#timeline">Timeline</a>
+          <a href="./pages/sap-code-erp.html">SAP CODE</a>
+          <a href="./pages/zkare.html">Zkare</a>
+          <a href="#credentials">Awards</a>
+          <a href="#home">Back to top</a>
+        </nav>
       </div>
     </footer>
 
-    <script src="./script.js?v=20260611h"></script>
+    <script src="./script.js?v=20260611i"></script>
   </body>
 </html>
