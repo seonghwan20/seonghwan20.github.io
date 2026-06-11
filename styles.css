@@ -1315,6 +1315,287 @@ main img {
   line-height: 1.7;
 }
 
+.sap-learning-intro {
+  background:
+    linear-gradient(90deg, rgba(37, 99, 235, 0.08) 0 4px, transparent 4px 100%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.learning-map,
+.concept-grid,
+.co-process-grid,
+.architecture-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.learning-map {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.learning-map div,
+.concept-grid div,
+.co-process-grid div,
+.architecture-list div {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.learning-map div {
+  border-top: 3px solid rgba(37, 99, 235, 0.5);
+}
+
+.learning-map div:nth-child(2),
+.co-process-grid div:nth-child(2),
+.architecture-list div:nth-child(2) {
+  border-top-color: rgba(8, 145, 178, 0.52);
+}
+
+.learning-map div:nth-child(3),
+.co-process-grid div:nth-child(3),
+.architecture-list div:nth-child(3) {
+  border-top-color: rgba(245, 158, 11, 0.62);
+}
+
+.learning-map div:nth-child(4),
+.co-process-grid div:nth-child(4),
+.architecture-list div:nth-child(4) {
+  border-top-color: rgba(79, 70, 229, 0.54);
+}
+
+.learning-map div:nth-child(5),
+.co-process-grid div:nth-child(5),
+.architecture-list div:nth-child(5) {
+  border-top-color: rgba(20, 184, 166, 0.52);
+}
+
+.learning-map span,
+.co-process-grid span,
+.architecture-list span {
+  display: block;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.learning-map strong,
+.concept-grid strong,
+.co-process-grid strong,
+.architecture-list strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.learning-map p,
+.concept-grid p,
+.co-process-grid p,
+.architecture-list p {
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.learning-flow {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.learning-flow::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 9px;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2), var(--accent-warm));
+}
+
+.learning-flow div {
+  position: relative;
+  display: grid;
+  grid-template-columns: 150px minmax(180px, 0.34fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  min-height: 78px;
+  padding: 18px 20px 18px 34px;
+  border: 1px solid #dbe3ef;
+  border-left: 3px solid #bfdbfe;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.learning-flow div::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.learning-flow span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.learning-flow strong {
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.learning-flow p {
+  margin-top: 0;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.concept-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.concept-grid div {
+  border-left: 3px solid rgba(37, 99, 235, 0.52);
+}
+
+.concept-grid div:nth-child(2n) {
+  border-left-color: rgba(8, 145, 178, 0.56);
+}
+
+.concept-grid div:nth-child(3n) {
+  border-left-color: rgba(245, 158, 11, 0.62);
+}
+
+.concept-grid.compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.system-flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.system-flow div {
+  position: relative;
+  min-height: 170px;
+  padding: 18px;
+  border: 1px solid #dbe3ef;
+  border-top: 3px solid rgba(37, 99, 235, 0.5);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
+}
+
+.system-flow div + div::before {
+  content: "";
+  position: absolute;
+  top: 36px;
+  left: -12px;
+  width: 12px;
+  height: 2px;
+  background: #bfdbfe;
+}
+
+.system-flow span,
+.system-flow strong {
+  display: block;
+}
+
+.system-flow span {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.system-flow strong {
+  margin-top: 24px;
+  color: var(--ink);
+  font-size: 17px;
+}
+
+.system-flow p {
+  margin-top: 10px;
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.co-process-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.co-process-grid div {
+  border-top: 3px solid rgba(37, 99, 235, 0.5);
+}
+
+.architecture-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.architecture-list div {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 8px 14px;
+  align-items: start;
+  border-left: 3px solid rgba(37, 99, 235, 0.5);
+}
+
+.architecture-list div:nth-child(2) {
+  border-left-color: rgba(8, 145, 178, 0.56);
+}
+
+.architecture-list div:nth-child(3) {
+  border-left-color: rgba(245, 158, 11, 0.62);
+}
+
+.architecture-list div:nth-child(4) {
+  border-left-color: rgba(79, 70, 229, 0.54);
+}
+
+.architecture-list div:nth-child(5) {
+  border-left-color: rgba(20, 184, 166, 0.54);
+}
+
+.architecture-list div:nth-child(6) {
+  border-left-color: rgba(14, 165, 233, 0.56);
+}
+
+.architecture-list span {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #bfdbfe;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: #1e3a8a;
+}
+
+.architecture-list strong,
+.architecture-list p {
+  margin-top: 0;
+}
+
 .metric-grid {
   margin-top: 22px;
 }
@@ -1843,6 +2124,23 @@ main img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .learning-map,
+  .concept-grid,
+  .concept-grid.compact,
+  .co-process-grid,
+  .architecture-list,
+  .system-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .learning-flow div {
+    grid-template-columns: 120px minmax(0, 1fr);
+  }
+
+  .learning-flow p {
+    grid-column: 2;
+  }
+
   .sap-metric-row,
   .sap-flow,
   .sap-org-notes,
@@ -2050,5 +2348,27 @@ main img {
   .info-card,
   .project-card {
     padding: 22px;
+  }
+
+  .learning-map,
+  .concept-grid,
+  .concept-grid.compact,
+  .co-process-grid,
+  .architecture-list,
+  .system-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-flow div,
+  .architecture-list div {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-flow p {
+    grid-column: auto;
+  }
+
+  .architecture-list span {
+    grid-row: auto;
   }
 }
