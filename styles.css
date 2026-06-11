@@ -1336,6 +1336,74 @@ main img {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
+.learning-route {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 26px;
+  padding: 20px;
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(37, 99, 235, 0.08), rgba(8, 145, 178, 0.07), rgba(245, 158, 11, 0.07)),
+    #ffffff;
+}
+
+.learning-route::before {
+  content: "";
+  position: absolute;
+  top: 48px;
+  right: 9%;
+  left: 9%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-warm));
+}
+
+.learning-route div {
+  position: relative;
+  z-index: 1;
+  min-height: 118px;
+  padding: 14px;
+  border: 1px solid rgba(191, 219, 254, 0.85);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.045);
+}
+
+.learning-route span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.learning-route strong,
+.learning-route em {
+  display: block;
+}
+
+.learning-route strong {
+  margin-top: 18px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.learning-route em {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+}
+
 .learning-map div,
 .concept-grid div,
 .co-process-grid div,
@@ -1623,6 +1691,107 @@ main img {
 
 .module-link-grid div:nth-child(4) {
   border-left-color: rgba(79, 70, 229, 0.54);
+}
+
+.module-accordion {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.two-col-accordion {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.module-accordion details {
+  min-width: 0;
+  border: 1px solid #dbe3ef;
+  border-left: 3px solid rgba(37, 99, 235, 0.52);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  overflow: hidden;
+}
+
+.module-accordion details:nth-child(2) {
+  border-left-color: rgba(8, 145, 178, 0.56);
+}
+
+.module-accordion details:nth-child(3) {
+  border-left-color: rgba(245, 158, 11, 0.62);
+}
+
+.module-accordion details:nth-child(4) {
+  border-left-color: rgba(79, 70, 229, 0.54);
+}
+
+.module-accordion details:nth-child(5) {
+  border-left-color: rgba(20, 184, 166, 0.54);
+}
+
+.module-accordion details:nth-child(6) {
+  border-left-color: rgba(14, 165, 233, 0.56);
+}
+
+.module-accordion summary {
+  position: relative;
+  display: grid;
+  gap: 7px;
+  min-height: 88px;
+  padding: 18px 42px 18px 18px;
+  cursor: pointer;
+}
+
+.module-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.module-accordion summary::after {
+  content: "+";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #bfdbfe;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.module-accordion details[open] summary {
+  border-bottom: 1px solid #dbe3ef;
+  background: linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
+}
+
+.module-accordion details[open] summary::after {
+  content: "-";
+}
+
+.module-accordion summary span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.module-accordion summary strong {
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.module-accordion p {
+  margin: 0;
+  padding: 16px 18px 18px;
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.75;
 }
 
 .architecture-list {
@@ -2210,12 +2379,15 @@ main img {
   }
 
   .learning-map,
+  .learning-route,
   .concept-grid,
   .concept-grid.compact,
   .co-process-grid,
   .architecture-list,
   .module-study-grid,
   .module-link-grid,
+  .module-accordion,
+  .two-col-accordion,
   .system-flow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2438,14 +2610,25 @@ main img {
   }
 
   .learning-map,
+  .learning-route,
   .concept-grid,
   .concept-grid.compact,
   .co-process-grid,
   .architecture-list,
   .module-study-grid,
   .module-link-grid,
+  .module-accordion,
+  .two-col-accordion,
   .system-flow {
     grid-template-columns: 1fr;
+  }
+
+  .learning-route::before {
+    top: 9%;
+    bottom: 9%;
+    left: 34px;
+    width: 2px;
+    height: auto;
   }
 
   .learning-flow div,
