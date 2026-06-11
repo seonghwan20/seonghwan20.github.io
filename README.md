@@ -1,183 +1,45 @@
-<div align="center">
+# seonghwan20.github.io
 
-<br/>
+정성환의 개인 포트폴리오 GitHub Pages 저장소입니다.
 
-<pre>
-┌──────────────────────────────────────────────┐
-│                                              │
-│              Seonghwan Jeong                 │
-│                                              │
-│        SAP CO · Fiori/UI5 · Web3 · CS        │
-│                                              │
-└──────────────────────────────────────────────┘
-</pre>
+사이트 주소: [https://seonghwan20.github.io](https://seonghwan20.github.io)
 
-<p>
-  <a href="https://seonghwan20.github.io"><b>Portfolio</b></a>
-  &nbsp;·&nbsp;
-  <a href="mailto:wkrdmsxowkd20@gmail.com"><b>Email</b></a>
-  &nbsp;·&nbsp;
-  <a href="https://github.com/seonghwan20"><b>GitHub</b></a>
-</p>
+## Overview
 
-<p>
-  <img src="https://img.shields.io/badge/SAP_CO-0FAAFF?style=flat-square&logo=sap&logoColor=white" alt="SAP CO" />
-  <img src="https://img.shields.io/badge/ABAP-2563EB?style=flat-square" alt="ABAP" />
-  <img src="https://img.shields.io/badge/Fiori%2FUI5-0F172A?style=flat-square&logo=sap&logoColor=white" alt="Fiori UI5" />
-  <img src="https://img.shields.io/badge/Web3-7C3AED?style=flat-square&logo=ethereum&logoColor=white" alt="Web3" />
-  <img src="https://img.shields.io/badge/Computer_Science-111827?style=flat-square" alt="Computer Science" />
-</p>
+이 포트폴리오는 학업, 활동, 프로젝트, 수상 이력, SAP CODE ERP 구축 프로젝트 기록을 정리하기 위한 정적 웹사이트입니다.
 
-</div>
+주요 구성:
 
----
+- 활동 중심 타임라인
+- 프로젝트 및 상세 페이지
+- SAP CODE ERP Implementation Project 정리
+- Zkare, 조각집, BUIDL Asia, HashKey, Telegram IdeaTON 상세 기록
+- 학력, 자격증, 연락처 정보
 
-## Profile
-
-```yaml
-name: Seonghwan Jeong
-university: Hongik University
-major: Computer Science
-
-focus:
-  - SAP CO
-  - ERP Process Design
-  - ABAP Program Design
-  - Fiori/UI5 Application
-  - Web3 Service Architecture
-
-gpa:
-  total: 3.94 / 4.5
-  major: 4.05 / 4.5
-```
-
-## Current Focus
-
-| Area | What I Work On |
-| --- | --- |
-| SAP CO | Cost Center, Profit Center, allocation, cost splitting, activity price |
-| ERP Process | Sales, manufacturing, rental, inventory, costing data flow |
-| ABAP | Report, Module Pool, ALV, CDS View, OData |
-| Fiori/UI5 | Freestyle app, dashboard, service binding, UI data flow |
-| Web3 | Solidity, IPFS, access control, reward flow, service architecture |
-
-## Stack
-
-| Domain | Stack |
-| --- | --- |
-| SAP / ERP | ABAP · SAP CO · Fiori/UI5 · CDS View · OData · RAP |
-| Development | JavaScript · TypeScript · Python · Node.js · Rust · React |
-| Database | SQL |
-| Web3 | Solidity · Ethereum · IPFS |
-| Tools | Git · GitHub · VS Code |
-
----
-
-## Projects
-
-### 01. SAP CODE ERP Implementation Project
-
-Furniture manufacturing, sales, and rental ERP implementation project focused on SAP CO process and ERP data flow.
-
-| Role | Domain | Output |
-| --- | --- | --- |
-| PM / CO | SAP CO · ERP Process | ABAP Program · Fiori App · CDS View · Table · Screen |
-
-**Core Work**
-
-- Cost Center / Profit Center structure
-- 1st and 2nd allocation process
-- Cost splitting and actual activity price calculation
-- Actual product cost calculation
-- Standard cost analysis Fiori dashboard
-
-**Outputs**
+## Structure
 
 ```txt
-01. Statistical Key Figure management program
-02. Primary allocation execution program
-03. Cost splitting and actual activity price calculation program
-04. Standard cost analysis Fiori dashboard
+.
+├── index.html
+├── styles.css
+├── script.js
+├── pages/
+│   ├── sap-code-erp.html
+│   ├── sap-code-1st.html
+│   ├── zkare.html
+│   ├── sns-project.html
+│   ├── buidl-story-track.html
+│   ├── hashkey-hackathon.html
+│   ├── telegram-ideaton.html
+│   └── hongik-university.html
+└── assets/
 ```
 
-### 02. Zkare Medical Record Management System
+## Notes
 
-Blockchain-based medical record management system for patient-centered access control and record integrity.
-
-| Stack | Topic |
-| --- | --- |
-| React · Solidity · Ethereum · IPFS | access control · encryption · integrity |
-
-- Smart contract based access control
-- ECDSA signature verification
-- AES/RSA encryption
-- Patient consent flow
-- Multi-hospital data sharing structure
-
-### 03. 조각집 SNS Project
-
-CODEIT Boost team project for SNS service development.
-
-| Topic | Work |
-| --- | --- |
-| CRUD · API integration · troubleshooting | Post logic · FE/BE integration · server communication |
-
-- Post CRUD business logic
-- FE/BE API integration
-- Server communication troubleshooting
-- Web service data flow experience
-
-### 04. BUIDL Asia Story Track Project
-
-Blockchain-based IP reward platform for AI training data contribution.
-
-| Topic | Result |
-| --- | --- |
-| Web3 · IP · reward flow · service design | BUIDL Asia Story Track 최우수상 |
-
-- Data ownership problem definition
-- Contribution tracking structure
-- Reward flow design
-- Service structure and user flow planning
-
-**Links**<br/>
-[Award Post 1](https://x.com/devrelius/status/1911298178407870600)
-· [Award Post 2](https://x.com/ekang426/status/1911310541534216467?s=20)
-· [Award Post 3](https://x.com/BlockchainatYU/status/1911413117629628456?s=20)
-
----
-
-## Awards
-
-| Award | Link |
-| --- | --- |
-| Telegram IdeaTON 최우수상 | - |
-| HASHKEY HACKATHON 특별상 | [post](https://x.com/BlockchainatYU/status/1908135388641943925?s=20) |
-| BUIDL Asia Story Track 최우수상 | [post](https://x.com/BlockchainatYU/status/1911413117629628456?s=20) |
-
-## Certifications
-
-```txt
-전산회계 1급
-SQLD
-네트워크관리사 2급
-```
-
----
-
-## GitHub
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=seonghwan20&layout=compact&theme=github_dark&hide_border=true" alt="Top languages" />
-
-<br/><br/>
-
-<img src="https://streak-stats.demolab.com?user=seonghwan20&theme=github-dark-blue&hide_border=true" alt="GitHub streak" />
-
-</div>
-
----
+- 별도 빌드 도구 없이 GitHub Pages에서 바로 배포되는 정적 사이트입니다.
+- 이미지 확대 모달, 반응형 레이아웃, 상세 페이지 공통 스타일은 `script.js`와 `styles.css`에서 관리합니다.
+- CSS/JS 변경 시 HTML의 query version을 함께 갱신해 GitHub Pages 캐시 반영을 관리합니다.
 
 ## Contact
 
