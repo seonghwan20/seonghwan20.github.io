@@ -1693,86 +1693,6 @@ main img {
   border-left-color: rgba(79, 70, 229, 0.54);
 }
 
-.co-study-archive {
-  background:
-    linear-gradient(90deg, rgba(8, 145, 178, 0.08) 0 4px, transparent 4px 100%),
-    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
-}
-
-.study-material-strip {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 22px;
-}
-
-.study-material-strip div {
-  min-width: 0;
-  padding: 18px;
-  border: 1px solid #dbe3ef;
-  border-left: 3px solid rgba(37, 99, 235, 0.56);
-  border-radius: 8px;
-  background: linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
-}
-
-.study-material-strip div:nth-child(2) {
-  border-left-color: rgba(8, 145, 178, 0.58);
-}
-
-.study-material-strip div:nth-child(3) {
-  border-left-color: rgba(245, 158, 11, 0.64);
-}
-
-.study-material-strip strong,
-.study-material-strip span {
-  display: block;
-}
-
-.study-material-strip strong {
-  color: var(--ink);
-  font-size: clamp(30px, 4vw, 42px);
-  line-height: 1;
-}
-
-.study-material-strip span {
-  margin-top: 10px;
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.study-material-strip p {
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-.study-accordion details:nth-child(7) {
-  border-left-color: rgba(99, 102, 241, 0.56);
-}
-
-.study-source-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-.study-source-list span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 32px;
-  padding: 7px 12px;
-  border: 1px solid #dbe3ef;
-  border-radius: 999px;
-  background: #f8fbff;
-  color: var(--text);
-  font-size: 12px;
-  font-weight: 800;
-}
-
 .module-accordion {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2466,7 +2386,6 @@ main img {
   .architecture-list,
   .module-study-grid,
   .module-link-grid,
-  .study-material-strip,
   .module-accordion,
   .two-col-accordion,
   .system-flow {
@@ -2698,7 +2617,6 @@ main img {
   .architecture-list,
   .module-study-grid,
   .module-link-grid,
-  .study-material-strip,
   .module-accordion,
   .two-col-accordion,
   .system-flow {

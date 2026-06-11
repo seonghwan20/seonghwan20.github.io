@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=20260611f" />
+    <link rel="stylesheet" href="../styles.css?v=20260611g" />
   </head>
   <body>
     <header class="site-header">
@@ -231,80 +231,6 @@
               </div>
             </article>
 
-            <article class="detail-card co-study-archive">
-              <h3>CO Self Study Materials</h3>
-              <p>
-                SAP CODE 수업과 별도로 CO 개념, CCA 배부, FI/CO 전기 관계, Material Ledger, 실제원가 Flow를 엑셀로 정리했습니다.
-                원가 계산식과 전표 흐름을 직접 풀어보며 ERP 프로젝트의 CO 설계 기준으로 연결했습니다.
-              </p>
-              <div class="study-material-strip">
-                <div>
-                  <strong>8</strong>
-                  <span>Excel Workbooks</span>
-                  <p>CCA 배부, CKM3, FICO 전기, ML 가격차이, 실제원가 Flow</p>
-                </div>
-                <div>
-                  <strong>2</strong>
-                  <span>Reference PDFs</span>
-                  <p>SAP FICO Overview, ERP 원가관리 교재</p>
-                </div>
-              </div>
-              <div class="module-accordion two-col-accordion study-accordion">
-                <details open>
-                  <summary><span>Costing</span><strong>원가 개념과 표준원가</strong></summary>
-                  <p>
-                    원가를 재료비와 가공비로 나누고, SAP 표준원가가 BOM의 자재 소요량과 Routing의 작업 활동단가를 결합해 산출되는 구조로 정리했습니다.
-                    월중에는 표준원가가 재고 평가와 자동 전기의 기준이 되고, 월말 실제 가공비가 확정된 뒤 표준과 실제의 차이를 분석하는 흐름으로 이해했습니다.
-                  </p>
-                </details>
-                <details>
-                  <summary><span>CCA</span><strong>배부 기준과 Cycle/Segment</strong></summary>
-                  <p>
-                    CCA 배부 예시를 통해 송신 코스트센터, 수신 코스트센터, 원가요소 그룹, 통계주요지표가 어떻게 결합되는지 계산식으로 정리했습니다.
-                    Distribution은 기존 원가요소를 유지하고, Assessment는 평가 원가요소로 묶어 전달한다는 차이를 배부 금액 산식과 함께 비교했습니다.
-                  </p>
-                </details>
-                <details>
-                  <summary><span>FI/CO</span><strong>전기 관계와 원가요소</strong></summary>
-                  <p>
-                    FI 전표가 발생할 때 비용 계정과 1차 원가요소가 연결되고, 코스트센터나 내부오더 같은 CO Object가 관리회계 분석 단위가 되는 관계를 정리했습니다.
-                    S/4HANA에서는 G/L 계정과 원가요소가 통합되고 ACDOCA 중심으로 회사코드, 계정, 코스트센터, Profit Center, 세그먼트가 함께 추적된다는 점을 확인했습니다.
-                  </p>
-                </details>
-                <details>
-                  <summary><span>Material Ledger</span><strong>가격차이와 순환자재</strong></summary>
-                  <p>
-                    CKM3 흐름과 Material Ledger 가격차이 계산을 엑셀로 재현하며 기초재고, 입고, 생산, 소비, 누적 가격차이가 실제원가로 재배부되는 구조를 정리했습니다.
-                    순환자재는 반복적으로 가격차이가 되먹임되는 케이스를 1R, 2R, 3R 단계로 나누어 계수와 소비 비율을 적용하는 방식으로 계산했습니다.
-                  </p>
-                </details>
-                <details>
-                  <summary><span>Actual Cost</span><strong>실제원가 Flow</strong></summary>
-                  <p>
-                    간접 생산부서 비용을 직접 생산부서로 배부하고, 비용 분할과 실제 작업 수량을 연결해 실제 활동단가를 계산하는 월말 흐름을 정리했습니다.
-                    이후 재평가로 생산오더에 실제 활동원가를 반영하고, 생산오더 정산을 통해 제품 원가와 차이 분석으로 이어지는 구조를 학습했습니다.
-                  </p>
-                </details>
-                <details>
-                  <summary><span>CO Scope</span><strong>관리회계 전체 범위</strong></summary>
-                  <p>
-                    CO Overview와 관리회계 교안을 기준으로 CCA, Internal Order, Product Costing, Material Ledger, CO-PA, PCA의 역할을 나누어 정리했습니다.
-                    원가관리는 단순 계산이 아니라 구매, 생산, 물류, 판매, 재무 데이터가 결합되는 구조라는 점을 ERP 원가관리 교재와 함께 복습했습니다.
-                  </p>
-                </details>
-              </div>
-              <div class="study-source-list" aria-label="CO study source files">
-                <span>원가개념자료</span>
-                <span>CCA 배부 예시</span>
-                <span>FICO 전기 관계</span>
-                <span>CKM3 진행 수식</span>
-                <span>Material Ledger 가격차이</span>
-                <span>실제원가 Flow</span>
-                <span>코스트센터와 기능영역</span>
-                <span>CO Overview</span>
-              </div>
-            </article>
-
             <article class="detail-card">
               <h3>Module Study</h3>
               <p>
@@ -460,6 +386,6 @@
     </main>
 
     <footer class="footer"><div class="container footer-inner"><span>© 정성환. Portfolio archive.</span><a href="../index.html">Back to home</a></div></footer>
-    <script src="../script.js?v=20260611f"></script>
+    <script src="../script.js?v=20260611g"></script>
   </body>
 </html>
