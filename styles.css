@@ -1263,6 +1263,58 @@ main img {
   overflow-wrap: anywhere;
 }
 
+.mentoring-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.mentoring-grid div {
+  padding: 18px;
+  border: 1px solid #dbe3ef;
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.mentoring-grid div:nth-child(2) {
+  border-left-color: var(--accent-2);
+}
+
+.mentoring-grid div:nth-child(3) {
+  border-left-color: var(--accent-warm);
+}
+
+.mentoring-grid div:nth-child(4) {
+  border-left-color: var(--accent-edu);
+}
+
+.mentoring-grid span,
+.mentoring-grid strong {
+  display: block;
+}
+
+.mentoring-grid span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.mentoring-grid strong {
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.mentoring-grid p {
+  margin-top: 10px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
 .metric-grid {
   margin-top: 22px;
 }
@@ -1778,6 +1830,7 @@ main img {
 
   .focus-grid,
   .project-grid,
+  .mentoring-grid,
   .metric-grid {
     grid-template-columns: 1fr;
   }
