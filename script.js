@@ -37,12 +37,7 @@ if (zoomableImages.length) {
         <button class="image-lightbox-button" type="button" data-action="zoom-out" aria-label="축소">−</button>
         <button class="image-lightbox-button" type="button" data-action="reset" aria-label="확대 초기화">Reset</button>
         <button class="image-lightbox-button" type="button" data-action="zoom-in" aria-label="확대">+</button>
-        <button class="image-lightbox-button" type="button" data-action="pan-left" aria-label="왼쪽으로 이동">←</button>
-        <button class="image-lightbox-button" type="button" data-action="pan-up" aria-label="위로 이동">↑</button>
-        <button class="image-lightbox-button" type="button" data-action="pan-down" aria-label="아래로 이동">↓</button>
-        <button class="image-lightbox-button" type="button" data-action="pan-right" aria-label="오른쪽으로 이동">→</button>
         <button class="image-lightbox-button" type="button" data-action="next" aria-label="다음 이미지">›</button>
-        <a class="image-lightbox-button image-lightbox-original" href="#" target="_blank" rel="noreferrer">Original</a>
         <button class="image-lightbox-close" type="button" aria-label="이미지 닫기">×</button>
       </div>
     </div>
@@ -56,7 +51,6 @@ if (zoomableImages.length) {
   const lightboxTitle = lightbox.querySelector(".image-lightbox-title");
   const lightboxCounter = lightbox.querySelector(".image-lightbox-counter");
   const closeButton = lightbox.querySelector(".image-lightbox-close");
-  const originalLink = lightbox.querySelector(".image-lightbox-original");
   const actionButtons = lightbox.querySelectorAll("[data-action]");
   let currentIndex = 0;
   let scale = 1;
@@ -111,7 +105,6 @@ if (zoomableImages.length) {
     lightboxImage.alt = image.alt || caption || "확대 이미지";
     lightboxTitle.textContent = caption || image.alt || "Image preview";
     lightboxCounter.textContent = `${currentIndex + 1} / ${zoomableImages.length}`;
-    originalLink.href = source;
     resetImagePosition();
   };
 
@@ -151,10 +144,6 @@ if (zoomableImages.length) {
       if (action === "zoom-in") setZoom(scale + 0.35);
       if (action === "zoom-out") setZoom(scale - 0.35);
       if (action === "reset") resetImagePosition();
-      if (action === "pan-left") panImage(-90, 0);
-      if (action === "pan-right") panImage(90, 0);
-      if (action === "pan-up") panImage(0, -90);
-      if (action === "pan-down") panImage(0, 90);
     });
   });
 
