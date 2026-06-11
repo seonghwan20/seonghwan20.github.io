@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=20260611c" />
+    <link rel="stylesheet" href="../styles.css?v=20260611d" />
   </head>
   <body>
     <header class="site-header">
@@ -141,6 +141,65 @@
                   <strong>PCA / G/L 중심 손익</strong>
                   <p>
                     대량의 수익성 세그먼트 생성을 피하고, Profit Center와 G/L 중심으로 제조·유통·렌탈 손익을 연결했습니다.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <div class="sap-card-kicker">CO Data Architecture</div>
+              <h3>CO Data Design Notes</h3>
+              <p>
+                CO 프로그램은 화면 단위로 먼저 나누지 않고, 원가 데이터가 어떤 기준으로 생성되고 이동하는지부터 설계했습니다.
+                조직 계층, 원가요소, SKF, 배부 규칙, 비용 분할, 실제 활동단가, 차이 정산이 하나의 월말 결산 흐름 안에서 이어지도록 데이터 구조를 잡았습니다.
+              </p>
+              <div class="architecture-list architecture-list-expanded">
+                <div>
+                  <span>01</span>
+                  <strong>Hybrid Splitting Model</strong>
+                  <p>
+                    제조 비용을 LABOR, MACH, OVRH 활동유형으로 분할했습니다.
+                    동일 시간 단위 비용은 실제 작업 실적 수량으로 동적 안분하고, 단위가 맞지 않는 제조간접비는 직접 매핑 방식으로 분리해 단위 충돌을 줄였습니다.
+                  </p>
+                </div>
+                <div>
+                  <span>02</span>
+                  <strong>Hierarchy Parser</strong>
+                  <p>
+                    Cost Center Group과 조직 계층을 parent-child 구조로 읽어 실행 대상 Cost Center 범위를 생성했습니다.
+                    Queue/Stack 패턴으로 하위 노드를 펼치고, 메모리 캐싱으로 반복 DB 조회를 줄이는 방향으로 설계했습니다.
+                  </p>
+                </div>
+                <div>
+                  <span>03</span>
+                  <strong>SKF Generation</strong>
+                  <p>
+                    EMP, SPACE, SHIP, WHRS를 핵심 통계주요지표로 정리했습니다.
+                    인원수는 HR 공통비, 면적은 관리/공장 공통비, 출하건수는 물류 비용, 작업시간은 제조간접비 배부 기준으로 연결했습니다.
+                  </p>
+                </div>
+                <div>
+                  <span>04</span>
+                  <strong>Allocation Master</strong>
+                  <p>
+                    본사 공통비, 물류 허브 비용, 플랜트 관리 비용을 단계별로 하향 배부하는 구조를 설계했습니다.
+                    Cycle과 Segment를 기준으로 송신자, 수신자, 배부 기준, 배부 원가요소가 명확히 분리되도록 구성했습니다.
+                  </p>
+                </div>
+                <div>
+                  <span>05</span>
+                  <strong>Actual Activity Price</strong>
+                  <p>
+                    분할된 실제 비용과 실제 조업도 수량을 연결해 월별 실제 활동단가를 산출했습니다.
+                    이 단가는 표준원가 분석과 실제 원가 차이 판단에 사용되며, 제품 가공비의 현실성을 확인하는 기준이 됩니다.
+                  </p>
+                </div>
+                <div>
+                  <span>06</span>
+                  <strong>Variance Settlement</strong>
+                  <p>
+                    표준 투입액과 실제 활동원가 차이를 가격차이와 배부차이 관점으로 구분했습니다.
+                    차이는 단순 표시값이 아니라 원가 차이 정산과 자재원장/제품 원가 분석으로 이어질 수 있는 구조로 정리했습니다.
                   </p>
                 </div>
               </div>
@@ -431,6 +490,6 @@
         <a href="../index.html">Back to home</a>
       </div>
     </footer>
-    <script src="../script.js?v=20260611c"></script>
+    <script src="../script.js?v=20260611d"></script>
   </body>
 </html>

@@ -1324,7 +1324,9 @@ main img {
 .learning-map,
 .concept-grid,
 .co-process-grid,
-.architecture-list {
+.architecture-list,
+.module-study-grid,
+.module-link-grid {
   display: grid;
   gap: 14px;
   margin-top: 22px;
@@ -1337,7 +1339,9 @@ main img {
 .learning-map div,
 .concept-grid div,
 .co-process-grid div,
-.architecture-list div {
+.architecture-list div,
+.module-study-grid div,
+.module-link-grid div {
   min-width: 0;
   padding: 18px;
   border: 1px solid #dbe3ef;
@@ -1547,6 +1551,80 @@ main img {
   border-top: 3px solid rgba(37, 99, 235, 0.5);
 }
 
+.module-study-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.module-study-grid div {
+  border-top: 3px solid rgba(37, 99, 235, 0.5);
+}
+
+.module-study-grid div:nth-child(2) {
+  border-top-color: rgba(8, 145, 178, 0.52);
+}
+
+.module-study-grid div:nth-child(3) {
+  border-top-color: rgba(245, 158, 11, 0.62);
+}
+
+.module-study-grid div:nth-child(4) {
+  border-top-color: rgba(79, 70, 229, 0.54);
+}
+
+.module-study-grid div:nth-child(5) {
+  border-top-color: rgba(20, 184, 166, 0.52);
+}
+
+.module-study-grid div:nth-child(6) {
+  border-top-color: rgba(14, 165, 233, 0.56);
+}
+
+.module-study-grid span,
+.module-link-grid span {
+  display: block;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.module-study-grid strong,
+.module-link-grid strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.module-study-grid p,
+.module-link-grid p {
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.module-link-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.module-link-grid div {
+  border-left: 3px solid rgba(37, 99, 235, 0.52);
+}
+
+.module-link-grid div:nth-child(2) {
+  border-left-color: rgba(8, 145, 178, 0.56);
+}
+
+.module-link-grid div:nth-child(3) {
+  border-left-color: rgba(245, 158, 11, 0.62);
+}
+
+.module-link-grid div:nth-child(4) {
+  border-left-color: rgba(79, 70, 229, 0.54);
+}
+
 .architecture-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -1594,6 +1672,13 @@ main img {
 .architecture-list strong,
 .architecture-list p {
   margin-top: 0;
+}
+
+.architecture-list-expanded div {
+  min-height: 150px;
+  background:
+    radial-gradient(circle at 24px 24px, rgba(37, 99, 235, 0.08), transparent 30px),
+    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
 }
 
 .metric-grid {
@@ -2129,6 +2214,8 @@ main img {
   .concept-grid.compact,
   .co-process-grid,
   .architecture-list,
+  .module-study-grid,
+  .module-link-grid,
   .system-flow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2355,6 +2442,8 @@ main img {
   .concept-grid.compact,
   .co-process-grid,
   .architecture-list,
+  .module-study-grid,
+  .module-link-grid,
   .system-flow {
     grid-template-columns: 1fr;
   }

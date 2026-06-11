@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css?v=20260611c" />
+    <link rel="stylesheet" href="../styles.css?v=20260611d" />
   </head>
   <body>
     <header class="site-header">
@@ -225,37 +225,97 @@
             </article>
 
             <article class="detail-card">
-              <h3>CO Data Design Notes</h3>
-              <div class="architecture-list">
+              <h3>Module Study</h3>
+              <p>
+                SAP CODE 과정 중 별도로 모듈 스터디를 모아 진행하며 FI, SD, MM, PP가 CO로 연결되는 지점을 정리했습니다.
+                CO를 중심에 두되, 매출·출고·구매·생산 데이터가 어떤 테이블과 전표 흐름을 통해 관리회계로 들어오는지 함께 확인했습니다.
+              </p>
+              <div class="module-study-grid">
                 <div>
-                  <span>01</span>
-                  <strong>Hybrid Splitting Model</strong>
-                  <p>제조 비용을 LABOR, MACH, OVRH 기준으로 분할하고, 동일 단위 비용은 작업 실적 수량으로 동적 안분했습니다.</p>
+                  <span>CO Core</span>
+                  <strong>Cost Center Accounting</strong>
+                  <p>
+                    코스트센터를 기준으로 비용을 계획, 집계, 결산, 리포팅하는 구조를 정리했습니다.
+                    기준정보는 코스트센터, 원가요소, 액티비티, 통계주요지표로 나뉘며 월말에는 배부, 차이계산, 액티비티 가격계산으로 이어집니다.
+                  </p>
                 </div>
                 <div>
-                  <span>02</span>
-                  <strong>Hierarchy Parser</strong>
-                  <p>Cost Center Group과 조직 계층을 parent-child 구조로 읽고, Queue/Stack 패턴으로 실행 대상 Cost Center 범위를 생성했습니다.</p>
+                  <span>CO Object</span>
+                  <strong>Cost Element · Cost Center</strong>
+                  <p>
+                    원가요소는 CO Object 귀속이 필요한 수익/비용 계정으로 이해했고, 1차 원가요소와 2차 원가요소의 쓰임을 구분했습니다.
+                    코스트센터는 비용 책임 단위이자 예산, 감가상각, 생산 공정, 공통비 배부, 통계 전기 단위로 활용될 수 있음을 정리했습니다.
+                  </p>
                 </div>
                 <div>
-                  <span>03</span>
-                  <strong>SKF Generation</strong>
-                  <p>EMP, SPACE, SHIP, WHRS를 핵심 통계주요지표로 압축해 HR, 물류, 공장 간접비 배부 기준으로 사용했습니다.</p>
+                  <span>Overhead</span>
+                  <strong>간접비 발생 · 준비 · 배부</strong>
+                  <p>
+                    FI 전표가 발생하면 CO Object와 함께 CO 데이터가 기록되고, 월말에는 SKF를 기준으로 간접비를 배부합니다.
+                    Distribution은 1차 원가요소 성격을 유지하고, Assessment는 여러 비용을 2차 원가요소로 묶어 전달하는 방식으로 구분했습니다.
+                  </p>
                 </div>
                 <div>
-                  <span>04</span>
-                  <strong>Allocation Master</strong>
-                  <p>본사 공통비, 물류 허브 비용, 플랜트 관리 비용을 단계별로 하향 배부하는 Cycle/Segment 구조를 설계했습니다.</p>
+                  <span>Product Costing</span>
+                  <strong>표준원가 · 실제원가 · 차이</strong>
+                  <p>
+                    CK11N, CK24 흐름으로 표준원가를 계산·표시·방출하고, 생산 실행 이후 실제 투입 원가와의 차이를 계산하는 결산 흐름을 정리했습니다.
+                    KEKO, CKIS, MBEW를 표준원가 분석의 핵심 데이터로 연결했습니다.
+                  </p>
                 </div>
                 <div>
-                  <span>05</span>
-                  <strong>Actual Activity Price</strong>
-                  <p>분할된 실제 비용과 실제 조업도 수량을 연결해 활동단가를 산출하고, 표준원가와 실제원가 차이 분석으로 이어지게 했습니다.</p>
+                  <span>Material Ledger</span>
+                  <strong>자재원장과 실제원가</strong>
+                  <p>
+                    자재원장을 재고 수불 거래의 보조원장으로 보고, 결산 시 원가 차이를 자재 수불에 따라 roll-up하는 실제원가 계산 구조를 학습했습니다.
+                    표준가격으로 운영되는 월중 흐름과 월말 실제원가 보정의 차이를 구분했습니다.
+                  </p>
                 </div>
                 <div>
-                  <span>06</span>
-                  <strong>Variance Settlement</strong>
-                  <p>표준 투입액과 실제 활동원가 차이를 비교해 가격차이와 배부차이를 구분하고 최종 원가 분석 기준으로 정리했습니다.</p>
+                  <span>Profitability</span>
+                  <strong>CO-PA · PCA</strong>
+                  <p>
+                    CO-PA는 고객, 제품, 시장 관점의 수익성 분석으로, SD 매출과 PP/MM 원가 흐름이 모이는 영역으로 정리했습니다.
+                    PCA는 Profit Center 단위 책임회계와 구분회계를 위한 구조로 이해했습니다.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <h3>Module Integration Notes</h3>
+              <div class="module-link-grid">
+                <div>
+                  <span>SD → FI/CO</span>
+                  <strong>Sales Order · Delivery · Billing</strong>
+                  <p>
+                    VA01에서 판매 오더가 생성되고, VL01N/VL02N 출고 처리로 재고가 감소하며, VF01 청구 시 FI 전표와 매출 데이터가 생성됩니다.
+                    VBRK/VBRP의 청구 데이터는 BKPF/BSEG 회계 전표와 연결되고, VPRS 조건을 통해 표준원가가 CO-PA 분석으로 이어집니다.
+                  </p>
+                </div>
+                <div>
+                  <span>PP → CO-PC</span>
+                  <strong>BOM · Routing · Work Center</strong>
+                  <p>
+                    PP는 무엇을 만들지, 무엇으로 만들지, 어디서 어떤 순서로 만들지를 정의합니다.
+                    Work Center에는 Cost Center와 Activity Type이 연결되어 생산 확정 시 작업시간이 가공비로 전환되고, 표준원가와 실제원가 차이 분석의 기준이 됩니다.
+                  </p>
+                </div>
+                <div>
+                  <span>MM → FI/CO</span>
+                  <strong>Purchase Order · Goods Receipt · Invoice</strong>
+                  <p>
+                    ME21N 구매오더, MIGO 입고, MIRO 송장 검증 흐름에서 계정지정 정보가 CO 연결의 기준이 됩니다.
+                    비용성 구매는 입고 시점에 Cost Center로 비용이 발생하고, 송장 금액 차이는 회계 전표를 통해 CO 비용 또는 가격차이로 이어집니다.
+                  </p>
+                </div>
+                <div>
+                  <span>S/4HANA</span>
+                  <strong>ACDOCA 중심 통합</strong>
+                  <p>
+                    ECC에서 나뉘어 있던 FI/CO 합계 테이블과 개별 항목 흐름을 S/4HANA에서는 ACDOCA 중심으로 이해했습니다.
+                    RACCT, RBUKRS, PRCTR, KOSTL, BTTYPE 같은 필드가 계정, 회사코드, 손익센터, 코스트센터, 트랜잭션 출처를 연결합니다.
+                  </p>
                 </div>
               </div>
             </article>
@@ -329,6 +389,6 @@
     </main>
 
     <footer class="footer"><div class="container footer-inner"><span>© 정성환. Portfolio archive.</span><a href="../index.html">Back to home</a></div></footer>
-    <script src="../script.js?v=20260611c"></script>
+    <script src="../script.js?v=20260611d"></script>
   </body>
 </html>
