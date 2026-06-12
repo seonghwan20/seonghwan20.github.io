@@ -1418,7 +1418,7 @@ main img {
 
 .side-stack {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   align-items: start;
   order: -1;
   gap: 14px;
@@ -1426,21 +1426,11 @@ main img {
 
 .side-stack .info-card {
   min-height: 0;
-  padding: 22px;
+  padding: 20px;
   border-top: 3px solid rgba(37, 99, 235, 0.45);
   background:
     linear-gradient(180deg, rgba(239, 246, 255, 0.72), rgba(255, 255, 255, 0.96)),
     white;
-}
-
-.side-stack .info-card:has(.plain-list),
-.side-stack .info-card:has(.metric-list),
-.side-stack .info-card:has(p) {
-  grid-column: span 2;
-}
-
-.side-stack .info-card:has(.chip-list) {
-  grid-column: auto;
 }
 
 .side-stack .info-card .plain-list {
@@ -1453,24 +1443,32 @@ main img {
 }
 
 .side-stack .info-card:has(.plain-list) .plain-list {
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 }
 
 .side-stack .info-card:has(.plain-list) .plain-list li {
   align-content: start;
-  min-height: 72px;
+  min-height: 0;
   padding: 0 0 10px;
 }
 
 .side-stack .info-card .metric-list {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 }
 
 .side-stack .info-card .metric-list .metric {
-  grid-template-columns: 1fr;
-  gap: 6px;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 10px;
   min-height: 0;
-  padding: 14px;
+  padding: 12px;
+}
+
+.side-stack .info-card .metric strong {
+  font-size: 18px;
+}
+
+.side-stack .info-card .metric span {
+  line-height: 1.35;
 }
 
 .side-stack .info-card:nth-child(2) {
@@ -3027,12 +3025,6 @@ main img {
   .sap-image-strip.four,
   .sap-image-strip.compact {
     grid-template-columns: 1fr;
-  }
-
-  .side-stack .info-card:has(.plain-list),
-  .side-stack .info-card:has(.metric-list),
-  .side-stack .info-card:has(p) {
-    grid-column: auto;
   }
 
   .sap-drawio-frame {
