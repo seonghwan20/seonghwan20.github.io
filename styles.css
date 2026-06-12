@@ -1496,6 +1496,215 @@ main img {
   overflow-wrap: anywhere;
 }
 
+.academic-project-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.academic-project-grid a {
+  display: grid;
+  gap: 7px;
+  padding: 18px;
+  border: 1px solid #dbe3ef;
+  border-left: 3px solid var(--accent-edu);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(79, 70, 229, 0.08), transparent 72%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.academic-project-grid a:nth-child(2) {
+  border-left-color: var(--accent-2);
+}
+
+.academic-project-grid span,
+.academic-project-grid strong,
+.academic-project-grid em {
+  display: block;
+}
+
+.academic-project-grid span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.academic-project-grid strong {
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.academic-project-grid em {
+  color: var(--text);
+  font-size: 13.5px;
+  font-style: normal;
+  line-height: 1.65;
+}
+
+.aml-intro-card {
+  background:
+    linear-gradient(90deg, rgba(79, 70, 229, 0.08) 0 4px, transparent 4px 100%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.aml-flow,
+.aml-spec-grid,
+.aml-result-grid,
+.code-example-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.aml-flow {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.aml-flow div,
+.aml-spec-grid div,
+.aml-result-grid div,
+.code-example-grid div {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.aml-flow div {
+  position: relative;
+  border-top: 3px solid rgba(79, 70, 229, 0.55);
+}
+
+.aml-flow div + div::before {
+  content: "";
+  position: absolute;
+  top: 34px;
+  left: -14px;
+  width: 14px;
+  height: 2px;
+  background: #c7d2fe;
+}
+
+.aml-flow span,
+.aml-spec-grid span,
+.code-example-grid span {
+  display: block;
+  color: var(--accent-edu);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.aml-flow strong,
+.aml-spec-grid strong,
+.aml-result-grid strong,
+.code-example-grid strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.aml-flow p,
+.aml-spec-grid p {
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.aml-spec-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.loss-chart {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  align-items: end;
+  min-height: 280px;
+  margin-top: 26px;
+  padding: 24px;
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  background:
+    repeating-linear-gradient(180deg, rgba(37, 99, 235, 0.06) 0 1px, transparent 1px 44px),
+    #ffffff;
+}
+
+.loss-chart div {
+  display: grid;
+  align-content: end;
+  min-height: 220px;
+}
+
+.loss-chart div::before {
+  content: "";
+  display: block;
+  height: var(--h);
+  min-height: 32px;
+  border-radius: 8px 8px 3px 3px;
+  background: linear-gradient(180deg, var(--accent-edu), var(--accent));
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.12);
+}
+
+.loss-chart strong,
+.loss-chart span {
+  display: block;
+  text-align: center;
+}
+
+.loss-chart strong {
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.loss-chart span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.aml-result-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.aml-result-grid div {
+  border-left: 3px solid var(--accent-edu);
+}
+
+.aml-result-grid span {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.code-example-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.code-example-grid code {
+  display: block;
+  margin-top: 12px;
+  padding: 13px 14px;
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #dbeafe;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  overflow-x: auto;
+}
+
 .mentoring-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2625,7 +2834,10 @@ main img {
   .module-link-grid,
   .module-accordion,
   .two-col-accordion,
-  .system-flow {
+  .system-flow,
+  .aml-flow,
+  .aml-spec-grid,
+  .code-example-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2638,6 +2850,7 @@ main img {
   }
 
   .sap-metric-row,
+  .aml-result-grid,
   .sap-flow,
   .sap-org-notes,
   .sap-image-strip.three,
@@ -2869,8 +3082,25 @@ main img {
   .module-link-grid,
   .module-accordion,
   .two-col-accordion,
-  .system-flow {
+  .system-flow,
+  .aml-flow,
+  .aml-spec-grid,
+  .aml-result-grid,
+  .code-example-grid {
     grid-template-columns: 1fr;
+  }
+
+  .aml-flow div + div::before {
+    display: none;
+  }
+
+  .loss-chart {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    min-height: 0;
+  }
+
+  .loss-chart div {
+    min-height: 160px;
   }
 
   .learning-route::before {
