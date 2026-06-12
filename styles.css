@@ -1600,6 +1600,30 @@ main img {
   gap: 0 18px;
 }
 
+@media (min-width: 980px) {
+  .battle-side-stack {
+    grid-template-columns: minmax(220px, 0.85fr) minmax(380px, 1.45fr) minmax(260px, 1fr);
+  }
+
+  .battle-side-stack .battle-tags-card {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+  }
+
+  .battle-side-stack .battle-wide-card {
+    grid-column: 2;
+  }
+
+  .battle-side-stack .battle-scope-card {
+    grid-column: 3;
+    grid-row: 1 / span 3;
+  }
+
+  .battle-side-stack .battle-wide-card p {
+    max-width: 46rem;
+  }
+}
+
 .academic-project-grid {
   display: grid;
   gap: 14px;
