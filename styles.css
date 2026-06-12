@@ -1419,13 +1419,16 @@ main img {
 .side-stack {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  align-items: start;
+  align-items: stretch;
   order: -1;
   gap: 14px;
 }
 
 .side-stack .info-card {
+  display: flex;
+  flex-direction: column;
   min-height: 0;
+  height: 100%;
   padding: 20px;
   border-top: 3px solid rgba(37, 99, 235, 0.45);
   background:
