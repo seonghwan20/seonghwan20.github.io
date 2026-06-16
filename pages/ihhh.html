@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="홍익대학교 정보보안학회 IHHH 시스템 해킹 및 리버스 엔지니어링 학습 기록" />
+    <title>IHHH Security Study | hwan.github.io</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css?v=20260612g" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Go to home">
+        <span class="brand-mark">H</span>
+        <span>정성환의 포트폴리오</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span></button>
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="../index.html#timeline">Timeline</a>
+        <a href="../index.html#credentials">Credentials</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="breadcrumbs"><a href="../index.html">Home</a><span>/</span><span>IHHH</span></div>
+          <p class="eyebrow">IHHH · Security Study · 2023.02 ~ 2023.09</p>
+          <h1>System Hacking & Reverse Engineering Study</h1>
+          <p class="lead">
+            홍익대학교 정보보안학회 IHHH에서 주 2회 스터디를 진행하며 시스템 해킹을 중심으로
+            리눅스 바이너리 분석, 메모리 취약점, 익스플로잇 기법을 학습했습니다.
+          </p>
+          <div class="hero-meta-grid" aria-label="activity summary">
+            <div><span>Activity</span><strong>IHHH</strong></div>
+            <div><span>Period</span><strong>2023.02 ~ 2023.09</strong></div>
+            <div><span>Focus</span><strong>System Hacking</strong></div>
+            <div><span>Practice</span><strong>Kali · Dreamhack</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="container detail-grid">
+          <div class="detail-stack">
+            <article class="detail-card">
+              <h3>Activity Overview</h3>
+              <p>
+                IHHH는 홍익대학교 정보보안학회 활동으로, 시스템 해킹과 리버스 엔지니어링 기법을
+                학습하고 보안 취약점을 직접 분석하는 방식으로 진행했습니다. Kali Linux 환경을 구축해
+                실습을 진행했고, Dreamhack wargame 문제를 풀며 학습한 개념을 반복적으로 적용했습니다.
+              </p>
+              <div class="summary-strip">
+                <span>Weekly Study</span>
+                <span>Linux Binary</span>
+                <span>Pwnable</span>
+                <span>CTF Practice</span>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <h3>Study Routine</h3>
+              <ul>
+                <li>주 2회 정기 스터디를 통해 시스템 해킹 이론과 실습 문제를 병행</li>
+                <li>Kali Linux 기반 실습 환경에서 gdb, pwndbg, pwntools를 활용해 바이너리 동작 분석</li>
+                <li>Dreamhack wargame을 통해 취약점 트리거, 메모리 상태 확인, exploit script 작성 흐름을 반복 연습</li>
+                <li>2024 핵테온 세종 국제 대학생 사이버보안 경진대회 CTF 예선에 참가해 문제 해결 경험 확장</li>
+              </ul>
+            </article>
+
+            <article class="detail-card">
+              <h3>System Hacking Focus</h3>
+              <div class="process-columns">
+                <div class="process-block">
+                  <h4>Binary Analysis</h4>
+                  <ul>
+                    <li>ELF 실행 구조, entry point, section, shared object 매핑 이해</li>
+                    <li>gdb와 pwndbg로 register, stack, disassembly, backtrace 상태 추적</li>
+                    <li>checksec와 vmmap을 활용해 보호 기법과 메모리 레이아웃 확인</li>
+                  </ul>
+                </div>
+                <div class="process-block">
+                  <h4>Memory Vulnerability</h4>
+                  <ul>
+                    <li>stack buffer overflow로 데이터 변조, 정보 유출, 실행 흐름 조작 원리 학습</li>
+                    <li>return address overwrite, stack canary leak, out-of-bounds, format string bug 분석</li>
+                    <li>NX, ASLR, PIE, RELRO가 exploit 전략에 미치는 영향 정리</li>
+                  </ul>
+                </div>
+                <div class="process-block">
+                  <h4>Exploit Practice</h4>
+                  <ul>
+                    <li>open-read-write shellcode와 execve shellcode 작성 및 opcode 추출</li>
+                    <li>pwntools로 process, remote, send/recv, packing/unpacking 자동화</li>
+                    <li>ROP chain, ret2libc, GOT overwrite 등 보호 기법 우회 흐름 실습</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <h3>Reverse Engineering Scope</h3>
+              <p>
+                리버스 엔지니어링은 시스템 해킹 실습을 보조하는 분석 역량으로 학습했습니다.
+                컴파일 과정, ELF와 PE 같은 실행 파일 형식, disassemble과 decompile의 차이를 정리하고,
+                정적 분석과 동적 분석을 상황에 따라 선택하는 기준을 익혔습니다.
+              </p>
+              <ul>
+                <li>source code가 binary로 변환되는 preprocessing, compile, assemble, link 단계 이해</li>
+                <li>disassembler와 decompiler를 활용한 프로그램 구조 파악</li>
+                <li>static analysis와 dynamic analysis의 장단점, 난독화와 anti-debugging 제약 학습</li>
+              </ul>
+            </article>
+
+            <article class="detail-card">
+              <h3>What I Practiced</h3>
+              <div class="contract-list">
+                <div>
+                  <strong>Debugging</strong>
+                  <span>중단점 설정, 레지스터와 스택 관찰, 함수 호출 흐름 추적으로 취약점 발생 지점 확인</span>
+                </div>
+                <div>
+                  <strong>Exploit Flow</strong>
+                  <span>취약점 조건 확인, payload 구성, 주소 계산, exploit script 작성까지의 흐름 반복</span>
+                </div>
+                <div>
+                  <strong>CTF Readiness</strong>
+                  <span>Dreamhack wargame과 CTF 예선 참여를 통해 제한 시간 안에서 문제를 분석하는 방식 경험</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <aside class="side-stack">
+            <div class="info-card">
+              <h3>Tags</h3>
+              <div class="chip-list">
+                <span>System Hacking</span>
+                <span>Reverse Engineering</span>
+                <span>Binary Analysis</span>
+                <span>Pwnable</span>
+                <span>CTF</span>
+                <span>Kali Linux</span>
+              </div>
+            </div>
+            <div class="info-card">
+              <h3>Organization</h3>
+              <p>홍익대학교 정보보안학회 IHHH</p>
+            </div>
+            <div class="info-card">
+              <h3>Environment</h3>
+              <ul class="plain-list">
+                <li><strong>OS</strong><span>Kali Linux</span></li>
+                <li><strong>Debugging</strong><span>gdb, pwndbg</span></li>
+                <li><strong>Automation</strong><span>pwntools</span></li>
+                <li><strong>Practice</strong><span>Dreamhack wargame</span></li>
+              </ul>
+            </div>
+            <div class="info-card">
+              <h3>Topics</h3>
+              <div class="chip-list">
+                <span>Shellcode</span>
+                <span>Stack BOF</span>
+                <span>Stack Canary</span>
+                <span>NX / ASLR</span>
+                <span>PIE / RELRO</span>
+                <span>ROP</span>
+                <span>Format String Bug</span>
+              </div>
+            </div>
+            <div class="info-card">
+              <h3>Competition</h3>
+              <p>2024 핵테온 세종 국제 대학생 사이버보안 경진대회 CTF 예선 참가</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><div class="container footer-inner"><span>© 정성환. Portfolio archive.</span><a href="../index.html">Back to home</a></div></footer>
+    <script src="../script.js?v=20260612g"></script>
+  </body>
+</html>
