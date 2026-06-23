@@ -1564,6 +1564,23 @@ main img {
   margin-top: 16px;
 }
 
+.scope-chip-list {
+  gap: 4px;
+}
+
+.scope-chip-list span {
+  min-height: 26px;
+  padding: 2px 6px;
+  font-size: 11.5px;
+  white-space: nowrap;
+}
+
+@media (min-width: 980px) {
+  .side-stack .info-card.wide .scope-chip-list {
+    flex-wrap: nowrap;
+  }
+}
+
 .repo-list {
   display: grid;
   gap: 12px;
