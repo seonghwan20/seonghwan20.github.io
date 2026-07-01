@@ -296,14 +296,69 @@
             </article>
 
             <article class="detail-card sap-flow-card">
-              <div class="sap-card-kicker">CO Data Flow</div>
-              <h3>Implemented Program Flow</h3>
-              <div class="sap-flow">
-                <div><span>01</span><strong>SKF 관리</strong><em>배부 기준 수량 입력</em></div>
-                <div><span>02</span><strong>비용 배부</strong><em>간접비 배부 실행</em></div>
-                <div><span>03</span><strong>비용 분할</strong><em>활동유형별 비용 분리</em></div>
-                <div><span>04</span><strong>활동단가</strong><em>실제 조업도 기반 단가 산출</em></div>
-                <div><span>05</span><strong>표준원가 분석</strong><em>Fiori 기반 조회·분석</em></div>
+              <div class="sap-card-kicker">CO Closing Roadmap</div>
+              <h3>End-to-End CO Program Flow</h3>
+              <p class="sap-flow-lead">
+                기준 데이터 설계에서 월말 배부, 실제 활동단가, Fiori 분석 앱까지 이어지는 구현 흐름입니다.
+                ABAP 실행 프로그램은 계산과 정산을 처리하고, Fiori 앱은 결과 조회와 원인 분석을 담당하도록 역할을 나눴습니다.
+              </p>
+              <div class="sap-flow" aria-label="End-to-end CO program flow">
+                <div class="sap-flow-item sap-flow-setup">
+                  <span class="sap-flow-phase">Setup</span>
+                  <span class="sap-flow-step">01</span>
+                  <strong>CO 기준 설계</strong>
+                  <p>조직, Cost Center, Profit Center, 원가요소, CCG 구조를 먼저 정리했습니다.</p>
+                  <em>Org · CCG · Cost Element</em>
+                </div>
+                <div class="sap-flow-item sap-flow-setup">
+                  <span class="sap-flow-phase">Setup</span>
+                  <span class="sap-flow-step">02</span>
+                  <strong>SKF 관리</strong>
+                  <p>EMP, SPACE, SHIP, WHRS 기준 수량을 월별로 입력하고 배부 기준으로 검증했습니다.</p>
+                  <em>Statistical Key Figure</em>
+                </div>
+                <div class="sap-flow-item sap-flow-execution">
+                  <span class="sap-flow-phase">Execution</span>
+                  <span class="sap-flow-step">03</span>
+                  <strong>비용 배부</strong>
+                  <p>본사, 물류, 공장 공통비를 Cycle, Segment, SKF 비율 기준으로 하향 배부했습니다.</p>
+                  <em>Allocation Cycle</em>
+                </div>
+                <div class="sap-flow-item sap-flow-execution">
+                  <span class="sap-flow-phase">Execution</span>
+                  <span class="sap-flow-step">04</span>
+                  <strong>비용 분할</strong>
+                  <p>직접 제조부서 비용을 LABOR, MACH, OVRH 활동유형별 원가로 분해했습니다.</p>
+                  <em>Cost Component Split</em>
+                </div>
+                <div class="sap-flow-item sap-flow-execution">
+                  <span class="sap-flow-phase">Execution</span>
+                  <span class="sap-flow-step">05</span>
+                  <strong>활동단가 산출</strong>
+                  <p>분할된 실제 비용과 실제 조업도 수량을 연결해 월별 실제 활동단가를 계산했습니다.</p>
+                  <em>Actual Activity Rate</em>
+                </div>
+                <div class="sap-flow-item sap-flow-analysis">
+                  <span class="sap-flow-phase">Analysis</span>
+                  <span class="sap-flow-step">06</span>
+                  <strong>표준·실제 원가 분석</strong>
+                  <p>표준원가, BOM, 가격차이, 가공비 차이를 Fiori에서 비교 분석했습니다.</p>
+                  <em>ZE4_CO_S_COST</em>
+                </div>
+                <div class="sap-flow-item sap-flow-analysis">
+                  <span class="sap-flow-phase">Analysis</span>
+                  <span class="sap-flow-step">07</span>
+                  <strong>실제원가 정산</strong>
+                  <p>가격차이 정산과 제품/옵션별 예상 실제원가 산출 흐름을 연결했습니다.</p>
+                  <em>ZE4_CO_EST_COST</em>
+                </div>
+                <div class="sap-flow-item sap-flow-analysis">
+                  <span class="sap-flow-phase">Analysis</span>
+                  <span class="sap-flow-step">08</span>
+                  <strong>수익성 분석</strong>
+                  <p>판매/렌탈 수익성, 판관비 배부, 제품/옵션별 영업이익을 분석했습니다.</p>
+                  <em>ZE4_CO_PA</em>
+                </div>
               </div>
             </article>
 
