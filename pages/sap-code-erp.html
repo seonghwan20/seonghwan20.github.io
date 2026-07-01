@@ -95,7 +95,7 @@
               <ul class="plain-list">
                 <li><strong>Design</strong><span>ERD, 조직도, 전체 프로세스 맵</span></li>
                 <li><strong>CO</strong><span>PCC, 배부, 비용 분할, 실제 활동단가</span></li>
-                <li><strong>Apps</strong><span>ABAP 4개, Fiori 1개</span></li>
+                <li><strong>Apps</strong><span>ABAP 4개, Fiori 4개</span></li>
                 <li><strong>Analysis</strong><span>표준원가, BOM 재료비, 재고·예약 추적</span></li>
               </ul>
             </div>
@@ -112,7 +112,7 @@
               <div class="sap-metric-row">
                 <div><strong>2026.03 ~ 2026.07</strong><span>Project Period</span></div>
                 <div><strong>PM / CO</strong><span>Role</span></div>
-                <div><strong>5</strong><span>CO Programs</span></div>
+                <div><strong>4 Fiori · 4 ABAP</strong><span>CO Apps</span></div>
                 <div><strong>FI · MM · SD · PP</strong><span>Integration Scope</span></div>
               </div>
               <div class="asis-tobe-board" aria-label="ERP scenario as-is to-be">
@@ -465,45 +465,146 @@
               </figure>
             </article>
 
-            <article class="detail-card sap-program sap-program-featured">
+            <article class="detail-card sap-fiori-portfolio">
               <div class="sap-program-head">
                 <div>
                   <span>SAPUI5 · Fiori Freestyle · OData V2</span>
-                  <h3>표준원가 분석 Fiori 대시보드</h3>
+                  <h3>Fiori App Portfolio</h3>
                 </div>
-                <strong>Standard Cost Analysis</strong>
+                <strong>4 CO Apps</strong>
               </div>
               <p>
-                자재별 월별 표준원가와 원가 구성요소를 조회하고, 재고·예약·BOM 구성·원가 변동 흐름을 함께 분석하는 Fiori Freestyle 화면입니다.
-                CO 원가 데이터와 MM 예약, SD 수주요건, PP BOM 데이터를 연결해 원가의 적정성을 판단할 수 있도록 구성했습니다.
+                CO 월말 결산과 분석 흐름을 4개의 Fiori Freestyle 앱으로 나누어 구현했습니다.
+                표준원가 조회에서 부서별 비용, 실제원가 산출, 수익성 분석으로 이어지도록 CDS/OData 서비스를 분리하고,
+                각 화면은 업무 담당자가 바로 원인과 전표 흐름을 추적할 수 있는 구조로 구성했습니다.
               </p>
-              <figure class="project-visual sap-feature-visual">
-                <img src="../assets/sap-erp/fiori-standard-cost-detail.webp" alt="Fiori standard cost detail dashboard" />
-                <figcaption>표준원가 상세 화면: 원가 구성, 재고, 예약, 히스토리 차트 통합 조회</figcaption>
-              </figure>
-              <div class="sap-decision-grid">
+
+              <div class="sap-fiori-common">
                 <div>
-                  <strong>CDS / OData Filter</strong>
-                  <p>연도, 월, 자재번호, 자재유형, 자재그룹 조건을 OData V2 read에 전달해 표준원가 데이터를 조회했습니다.</p>
+                  <span>Common Implementation</span>
+                  <strong>ReportExport Utility</strong>
                 </div>
-                <div>
-                  <strong>Master-Detail Routing</strong>
-                  <p>목록에서 자재를 선택하면 라우팅 파라미터로 회계연도, 월, 옵션 정보를 넘겨 상세 화면을 로드했습니다.</p>
-                </div>
-                <div>
-                  <strong>$expand Detail</strong>
-                  <p>원가 구성요소, 예약 정보, 수주요건 데이터를 Header 기준으로 함께 가져와 상세 화면을 구성했습니다.</p>
-                </div>
-                <div>
-                  <strong>VizFrame / Export</strong>
-                  <p>Donut, Line Chart와 Excel/PDF 출력까지 연결해 분석과 보고서 활용 흐름을 함께 구현했습니다.</p>
-                </div>
+                <p>
+                  4개 앱 전반에 공통 ReportExport 유틸을 적용해 조회 조건, KPI, 차트, 테이블 데이터를
+                  Excel/PDF 리포트로 출력할 수 있도록 구현했습니다. Export는 특정 화면의 단일 기능이 아니라
+                  Fiori 분석 앱 전체에 반복 적용한 공통 리포팅 레이어입니다.
+                </p>
               </div>
-              <div class="sap-image-strip four">
-                <img src="../assets/sap-erp/fiori-standard-cost-list.webp" alt="Fiori standard cost list" />
-                <img src="../assets/sap-erp/fiori-cost-component-chart.webp" alt="Fiori cost component chart" />
-                <img src="../assets/sap-erp/fiori-bom-cost.webp" alt="Fiori BOM cost table" />
-                <img src="../assets/sap-erp/fiori-export-dialog.webp" alt="Fiori export dialog" />
+
+              <div class="sap-fiori-app-list">
+                <section class="sap-fiori-app">
+                  <div class="sap-fiori-app-copy">
+                    <div class="sap-fiori-app-head">
+                      <span>01 · ZE4_CO_S_COST</span>
+                      <h4>표준원가 분석 대시보드</h4>
+                    </div>
+                    <p>
+                      제품 옵션별 표준원가를 조회하고 원가요소, BOM 재료비, 재고·예약 흐름, 원가차이를 한 화면 흐름으로 연결했습니다.
+                      CO 표준원가와 MM/PP 물류 데이터를 함께 보여 원가 적정성과 차이 원인을 빠르게 확인할 수 있도록 설계했습니다.
+                    </p>
+                    <ul class="sap-fiori-feature-list">
+                      <li>연도, 월, 제품, 제품유형, 제품그룹 기준 표준원가 목록 조회</li>
+                      <li>원가요소 상세, BOM 재료비 구성, 최근 표준단가 흐름 분석</li>
+                      <li>자재 가격차이와 가공비 차이를 분리한 원가차이 분석</li>
+                    </ul>
+                  </div>
+                  <figure class="project-visual sap-fiori-main-shot">
+                    <img src="../assets/sap-erp/fiori-s-cost-list.png" alt="ZE4_CO_S_COST standard cost list screen" />
+                    <figcaption>표준원가 목록 화면</figcaption>
+                  </figure>
+                  <div class="sap-fiori-gallery">
+                    <figure>
+                      <img src="../assets/sap-erp/fiori-s-cost-detail.png" alt="ZE4_CO_S_COST standard cost detail screen" />
+                      <figcaption>표준원가 상세 화면</figcaption>
+                    </figure>
+                    <figure>
+                      <img src="../assets/sap-erp/fiori-s-cost-variance.png" alt="ZE4_CO_S_COST cost variance analysis screen" />
+                      <figcaption>원가차이 분석 화면</figcaption>
+                    </figure>
+                  </div>
+                </section>
+
+                <section class="sap-fiori-app">
+                  <div class="sap-fiori-app-copy">
+                    <div class="sap-fiori-app-head">
+                      <span>02 · ZE4_CO_CC_COST</span>
+                      <h4>부서별 비용분석</h4>
+                    </div>
+                    <p>
+                      코스트센터 조직 계층을 기준으로 장부 순잔액, 예산 대비 실적, 기능영역별 비용 비율을 분석하는 앱입니다.
+                      배부 결과는 송신·수신 조직과 CCG 그룹 기준으로 시각화해 배부 사이클의 흐름을 설명할 수 있게 구성했습니다.
+                    </p>
+                    <ul class="sap-fiori-feature-list">
+                      <li>조직/코스트센터 Tree 기반 비용 집계와 월별 예산 대비 실적 비교</li>
+                      <li>계정별 비용 구성, 기능영역별 비율, 코스트센터별 상세 테이블</li>
+                      <li>CCG 그룹 기준 다단계 배부 흐름 분석과 배부 금액 시각화</li>
+                    </ul>
+                  </div>
+                  <figure class="project-visual sap-fiori-main-shot">
+                    <img src="../assets/sap-erp/fiori-cc-cost-dashboard.png" alt="ZE4_CO_CC_COST department cost dashboard" />
+                    <figcaption>부서별 비용 대시보드</figcaption>
+                  </figure>
+                  <div class="sap-fiori-gallery single">
+                    <figure>
+                      <img src="../assets/sap-erp/fiori-cc-cost-allocation-flow.png" alt="ZE4_CO_CC_COST allocation flow analysis" />
+                      <figcaption>배부 흐름 분석</figcaption>
+                    </figure>
+                  </div>
+                </section>
+
+                <section class="sap-fiori-app">
+                  <div class="sap-fiori-app-copy">
+                    <div class="sap-fiori-app-head">
+                      <span>03 · ZE4_CO_EST_COST</span>
+                      <h4>가격차이 정산 및 실제원가 산출</h4>
+                    </div>
+                    <p>
+                      기준별 단가 차이와 예상 배부차이를 조회하고, 실제원가 산출 전 제품/옵션별 영향을 확인하는 앱입니다.
+                      선택 제품의 BOM 가격 영향과 가공비 Breakdown을 함께 보여 결산 실행 전 원가 변동 원인을 검토할 수 있도록 했습니다.
+                    </p>
+                    <ul class="sap-fiori-feature-list">
+                      <li>제품/옵션별 표준원가, 예상 실제원가, 단가 가격차이 비교</li>
+                      <li>BOM 구성자재 가격 영향과 노무·기계·간접 가공비 차이 분석</li>
+                      <li>실제원가 산출 대상 상태 관리와 산출 후 원가차이 분석 연계</li>
+                    </ul>
+                  </div>
+                  <figure class="project-visual sap-fiori-main-shot">
+                    <img src="../assets/sap-erp/fiori-est-cost-settlement.png" alt="ZE4_CO_EST_COST price settlement and actual cost calculation screen" />
+                    <figcaption>가격차이 정산 및 실제원가 산출 화면</figcaption>
+                  </figure>
+                </section>
+
+                <section class="sap-fiori-app">
+                  <div class="sap-fiori-app-copy">
+                    <div class="sap-fiori-app-head">
+                      <span>04 · ZE4_CO_PA</span>
+                      <h4>수익성 분석</h4>
+                    </div>
+                    <p>
+                      판매와 렌탈 사업의 수익, 비용, 영업이익률을 CO/FI 기준으로 분석하는 앱입니다.
+                      공통관리비 배부 구조를 반영하고, 제품/옵션 단위 판매 수익성 및 렌탈 수익성을 분리해 확인할 수 있도록 구성했습니다.
+                    </p>
+                    <ul class="sap-fiori-feature-list">
+                      <li>판매·렌탈 수익, 총비용, 영업이익, 영업이익률 종합 Cockpit</li>
+                      <li>렌탈 비용 구조와 렌탈 영업이익 구성 분석</li>
+                      <li>제품/옵션별 판매매출, 매출원가, 판관비 배부, 판매기준 영업이익 분석</li>
+                    </ul>
+                  </div>
+                  <figure class="project-visual sap-fiori-main-shot">
+                    <img src="../assets/sap-erp/fiori-pa-cockpit.png" alt="ZE4_CO_PA profitability cockpit" />
+                    <figcaption>수익성 분석 종합 현황</figcaption>
+                  </figure>
+                  <div class="sap-fiori-gallery">
+                    <figure>
+                      <img src="../assets/sap-erp/fiori-pa-rental.png" alt="ZE4_CO_PA rental profitability screen" />
+                      <figcaption>렌탈 수익성 화면</figcaption>
+                    </figure>
+                    <figure>
+                      <img src="../assets/sap-erp/fiori-pa-product-option.png" alt="ZE4_CO_PA product option profitability screen" />
+                      <figcaption>제품/옵션 수익성 화면</figcaption>
+                    </figure>
+                  </div>
+                </section>
               </div>
             </article>
 
@@ -511,8 +612,8 @@
               <div class="sap-card-kicker">Implementation Value</div>
               <h3>CO 프로세스를 실행 가능한 시스템 흐름으로 구체화</h3>
               <p>
-                CO 기준 데이터, 배부 기준, 실제 활동단가, 표준원가 분석 화면을 분리된 기능이 아니라 하나의 원가관리 흐름으로 연결했습니다.
-                SKF 입력에서 배부와 비용 분할, 실제 활동단가 산출, Fiori 기반 표준원가 분석까지 이어지도록 설계해
+                CO 기준 데이터, 배부 기준, 실제 활동단가, 표준원가·부서비용·실제원가·수익성 Fiori 앱을 분리된 기능이 아니라 하나의 원가관리 흐름으로 연결했습니다.
+                SKF 입력에서 배부와 비용 분할, 실제 활동단가 산출, Fiori 기반 분석 앱까지 이어지도록 설계해
                 회계, 생산, 물류 데이터가 원가 의사결정에 사용되는 과정을 시스템 단위로 구현했습니다.
               </p>
             </article>
