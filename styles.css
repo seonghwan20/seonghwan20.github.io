@@ -2948,6 +2948,10 @@ main img {
   list-style: none;
 }
 
+.sap-flow-steps li::marker {
+  content: "";
+}
+
 .sap-flow-steps li {
   display: grid;
   grid-template-columns: 34px minmax(0, 1fr);
