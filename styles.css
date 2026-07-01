@@ -2857,168 +2857,137 @@ main img {
 }
 
 .sap-flow-card {
-  position: relative;
-  background:
-    linear-gradient(90deg, rgba(8, 145, 178, 0.06) 0 4px, transparent 4px 100%),
-    white;
+  background: white;
 }
 
 .sap-flow-lead {
-  max-width: 920px;
+  max-width: 860px;
   margin-top: 10px;
   color: var(--text);
   font-size: 15px;
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
 .sap-flow {
-  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr);
-  gap: 22px 0;
-  margin-top: 32px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
 }
 
-.sap-flow::before {
-  content: "";
-  position: absolute;
-  top: 12px;
-  bottom: 12px;
-  left: 50%;
-  width: 3px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-warm), var(--accent-2));
-  transform: translateX(-50%);
-}
-
-.sap-flow div {
+.sap-flow-phase-card {
   --flow-color: var(--accent);
-  --flow-soft: rgba(37, 99, 235, 0.08);
-  --flow-ring: rgba(37, 99, 235, 0.42);
-  --flow-badge: rgba(37, 99, 235, 0.09);
-  --flow-border: rgba(37, 99, 235, 0.22);
-  grid-column: 1;
+  --flow-soft: rgba(37, 99, 235, 0.05);
+  --flow-border: rgba(37, 99, 235, 0.18);
   position: relative;
-  min-height: 0;
-  padding: 20px;
-  border: 1px solid #dbe3ef;
-  border-top: 3px solid var(--flow-color);
+  overflow: hidden;
+  padding: 18px;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  background:
-    linear-gradient(90deg, var(--flow-soft), transparent 68%),
-    linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+  background: linear-gradient(180deg, var(--flow-soft), #ffffff 42%);
 }
 
-.sap-flow div:nth-child(even) {
-  grid-column: 3;
-  margin-top: 34px;
-}
-
-.sap-flow div.sap-flow-setup {
-  --flow-color: #2563eb;
-  --flow-soft: rgba(37, 99, 235, 0.09);
-  --flow-ring: rgba(37, 99, 235, 0.42);
-  --flow-badge: rgba(37, 99, 235, 0.09);
-  --flow-border: rgba(37, 99, 235, 0.22);
-}
-
-.sap-flow div.sap-flow-execution {
-  --flow-color: #ea580c;
-  --flow-soft: rgba(234, 88, 12, 0.09);
-  --flow-ring: rgba(234, 88, 12, 0.4);
-  --flow-badge: rgba(234, 88, 12, 0.09);
-  --flow-border: rgba(234, 88, 12, 0.22);
-}
-
-.sap-flow div.sap-flow-analysis {
-  --flow-color: #059669;
-  --flow-soft: rgba(5, 150, 105, 0.09);
-  --flow-ring: rgba(5, 150, 105, 0.4);
-  --flow-badge: rgba(5, 150, 105, 0.09);
-  --flow-border: rgba(5, 150, 105, 0.22);
-}
-
-.sap-flow div::before {
+.sap-flow-phase-card::before {
   content: "";
   position: absolute;
-  top: 26px;
-  right: -35px;
-  z-index: 1;
-  width: 16px;
-  height: 16px;
-  border: 4px solid white;
-  border-radius: 50%;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
   background: var(--flow-color);
-  box-shadow: 0 0 0 2px var(--flow-ring);
 }
 
-.sap-flow div::after {
-  content: "";
-  position: absolute;
-  top: 36px;
-  right: -28px;
-  width: 28px;
-  height: 2px;
-  border-radius: 999px;
-  background: var(--flow-ring);
+.sap-flow-phase-card.sap-flow-setup {
+  --flow-color: #2563eb;
+  --flow-soft: rgba(37, 99, 235, 0.05);
+  --flow-border: rgba(37, 99, 235, 0.18);
 }
 
-.sap-flow div:nth-child(even)::before {
-  right: auto;
-  left: -35px;
+.sap-flow-phase-card.sap-flow-execution {
+  --flow-color: #ea580c;
+  --flow-soft: rgba(234, 88, 12, 0.05);
+  --flow-border: rgba(234, 88, 12, 0.18);
 }
 
-.sap-flow div:nth-child(even)::after {
-  right: auto;
-  left: -28px;
+.sap-flow-phase-card.sap-flow-analysis {
+  --flow-color: #059669;
+  --flow-soft: rgba(5, 150, 105, 0.05);
+  --flow-border: rgba(5, 150, 105, 0.18);
 }
 
-.sap-flow span,
-.sap-flow strong,
-.sap-flow p,
-.sap-flow em {
+.sap-flow-phase-head {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e6edf5;
+}
+
+.sap-flow-phase-head span,
+.sap-flow-phase-head strong {
   display: block;
 }
 
-.sap-flow .sap-flow-phase {
-  display: inline-flex;
-  width: fit-content;
-  padding: 4px 9px;
-  border: 1px solid var(--flow-border);
-  border-radius: 999px;
-  background: var(--flow-badge);
+.sap-flow-phase-head span {
   color: var(--flow-color);
-  font-size: 12px;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sap-flow-phase-head strong {
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.sap-flow-steps {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sap-flow-steps li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.sap-flow-steps li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .sap-flow .sap-flow-step {
-  margin-top: 14px;
+  padding-top: 2px;
   color: var(--flow-color);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 900;
-  letter-spacing: 0.08em;
+  line-height: 1.4;
 }
 
 .sap-flow strong {
-  margin-top: 8px;
+  display: block;
   color: var(--ink);
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.35;
 }
 
 .sap-flow p {
-  margin-top: 10px;
+  margin-top: 5px;
   color: var(--text);
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 .sap-flow em {
-  margin-top: 14px;
+  display: block;
+  margin-top: 8px;
   color: var(--flow-color);
-  font-size: 13px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 800;
 }
@@ -3382,34 +3351,7 @@ main img {
 
   .sap-flow {
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding-left: 42px;
-  }
-
-  .sap-flow::before {
-    top: 6px;
-    bottom: 6px;
-    left: 15px;
-    transform: none;
-  }
-
-  .sap-flow div,
-  .sap-flow div:nth-child(even) {
-    grid-column: 1;
-    margin-top: 0;
-  }
-
-  .sap-flow div::before,
-  .sap-flow div:nth-child(even)::before {
-    right: auto;
-    left: -35px;
-  }
-
-  .sap-flow div::after,
-  .sap-flow div:nth-child(even)::after {
-    right: auto;
-    left: -26px;
-    width: 26px;
+    gap: 14px;
   }
 }
 
@@ -3554,38 +3496,16 @@ main img {
 
   .sap-flow {
     gap: 14px;
-    padding-left: 32px;
+    margin-top: 20px;
   }
 
-  .sap-flow::before {
-    top: 6px;
-    bottom: 6px;
-    left: 12px;
-    width: 3px;
-    height: auto;
-    transform: none;
+  .sap-flow-phase-card {
+    padding: 16px;
   }
 
-  .sap-flow div {
-    min-height: 0;
-    padding: 18px;
-  }
-
-  .sap-flow div::before,
-  .sap-flow div:nth-child(even)::before {
-    top: 25px;
-    right: auto;
-    left: -28px;
-  }
-
-  .sap-flow div::after,
-  .sap-flow div:nth-child(even)::after {
-    top: 35px;
-    right: auto;
-    bottom: auto;
-    left: -20px;
-    width: 20px;
-    transform: none;
+  .sap-flow-steps li {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 10px;
   }
 
   .sap-program-head {
