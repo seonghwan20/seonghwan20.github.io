@@ -2949,7 +2949,12 @@ main img {
 }
 
 .sap-flow-steps li::marker {
-  content: "";
+  content: none;
+}
+
+.sap-flow-steps li::before {
+  display: none;
+  content: none;
 }
 
 .sap-flow-steps li {
@@ -2958,6 +2963,9 @@ main img {
   gap: 12px;
   padding: 15px 0;
   border-bottom: 1px solid #edf2f7;
+  color: inherit;
+  font-size: inherit;
+  list-style: none;
 }
 
 .sap-flow-steps li:last-child {
